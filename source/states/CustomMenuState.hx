@@ -25,15 +25,15 @@ import substates.ResetScoreSubState;
 
 import backend.StageData;
 
-import states.menu.QuickPlaySong;
-import states.menu.SessionEntry;
+//import states.menu.QuickPlaySong;
+//import states.menu.SessionEntry;
 import backend.Song;
 import haxe.Json;
 import lime.utils.Assets;
 import backend.Highscore;
 import flixel.math.FlxRect;
 import flixel.addons.display.FlxSliceSprite;
-import states.menu.SongEntry;
+//import states.menu.SongEntry;
 
 
 class CustomMenuState extends MusicBeatState {
@@ -206,6 +206,11 @@ class CustomMenuState extends MusicBeatState {
     private function selectSong() {
         if (playerFlag && oponentFlag) {
             // Start the song or whatever depending on player and oponent
+            if (characters[playerIndex] == 'beans') {
+                if (characters[oponentIndex] == 'vam') {
+                    enterSong("noli");
+                }
+            }
             playerFlag = false;
             oponentFlag = false;
             playerSelected = null;
