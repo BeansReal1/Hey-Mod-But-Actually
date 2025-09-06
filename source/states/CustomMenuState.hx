@@ -114,6 +114,7 @@ class CustomMenuState extends MusicBeatState {
     function positionMenuItems(animated:Bool = false) {
         var itemCount:Int = menuItems.length;
         var screenWidth:Float = FlxG.width;
+        
         var spacing:Float = screenWidth / itemCount;
         var centerX:Float = screenWidth / 2;
 
@@ -131,13 +132,14 @@ class CustomMenuState extends MusicBeatState {
 
             var distance = Math.abs(item.x - finalX);
 
-            if (animated && distance < screenWidth / 2) {
+            if (animated) {
                 FlxTween.tween(item, {x: finalX, y: finalY}, 0.3, {ease: FlxEase.quadOut});
             } else {
                 item.x = finalX;
                 item.y = finalY;
             }
 
+            
             item.alpha = (i == curSelected) ? 0.5 : 1;
         }
     }
@@ -242,7 +244,7 @@ class CustomMenuState extends MusicBeatState {
     }
 
     function changeItem(change:Int) {
-        
+        var selectedOffsetY:Float = 30;
 
         curSelected = FlxMath.wrap(curSelected + change, 0, characters.length - 1);
         FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -250,10 +252,12 @@ class CustomMenuState extends MusicBeatState {
         positionMenuItems(false);
 
         for (item in menuItems) {
-
+            var prevY = item.y;
             if (item == selectedItem) {
                 item.alpha = 0.5;
+                item.y = item.y - selectedOffsetY;
             } else {
+                item.y = prevY;
                 item.alpha = 1;
             }
         }
