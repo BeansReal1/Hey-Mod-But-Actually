@@ -102,6 +102,7 @@ class CustomMenuState extends MusicBeatState {
         textDisplay();
         selectSong();
         cursorMovement();
+        selectedVisualManagement();
         myText.y += 10 * elapsed;
 
     }
@@ -140,10 +141,24 @@ class CustomMenuState extends MusicBeatState {
             }
 
             
-            item.alpha = (i == curSelected) ? 0.5 : 1;
+
         }
     }
 
+    private function selectedVisualManagement() {
+        var i:Int = 0;
+        for (item in menuItems) {
+
+            if(playerIndex == i || oponentIndex == i) {
+                item.alpha = 0.5;
+            } else {
+                item.alpha = 1;
+            }
+            i += 1;
+
+        }
+        
+    }
 
     private function cursorMovement() {
         cursor.x = FlxG.width / 2;
@@ -184,8 +199,18 @@ class CustomMenuState extends MusicBeatState {
         if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-
-			MusicBeatState.switchState(new MainMenuState());
+            if (playerFlag && !oponentFlag) {
+                playerSelected = null;
+                playerIndex = -1;
+                playerFlag = false;
+            } else if (oponentFlag) {
+                oponentSelected = null;
+                oponentIndex = -1;
+                oponentFlag = false;
+            } else {
+                MusicBeatState.switchState(new MainMenuState());
+            }
+			
 		}
     }
 
@@ -251,15 +276,22 @@ class CustomMenuState extends MusicBeatState {
         selectedItem = menuItems.members[curSelected];
         positionMenuItems(false);
 
+        var i:Int = 0;
         for (item in menuItems) {
             var prevY = item.y;
             if (item == selectedItem) {
-                item.alpha = 0.5;
                 item.y = item.y - selectedOffsetY;
             } else {
                 item.y = prevY;
+            }
+
+            if(playerIndex == i || oponentIndex == i) {
+                item.alpha = 0.5;
+            } else {
                 item.alpha = 1;
             }
+            i += 1;
+
         }
     }
 
