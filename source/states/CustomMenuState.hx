@@ -54,11 +54,18 @@ class CustomMenuState extends MusicBeatState {
     var oponentFlag:Bool;
 
     var menuItems:FlxTypedGroup<FlxSprite>;
+    var renderItemsPlayer:FlxTypedGroup<FlxSprite>;
+    var renderItemsOponent:FlxTypedGroup<FlxSprite>;
     var playerSelected:FlxSprite = null;
     var oponentSelected:FlxSprite = null;
     var cursor:FlxSprite;
     var selectedItem:FlxSprite;
     public static var curSelected:Int = 0;
+
+    var playerRenderx:Float = 20;
+    var playerRendery:Float = 20;
+    var oponentRenderx:Float = FlxG.width - 100;
+    var oponentRendery:Float = 20;
 
     var characters:Array<String> = [
 		'beans',
@@ -116,10 +123,16 @@ class CustomMenuState extends MusicBeatState {
         cursor.y = 0;
 
         menuItems = new FlxTypedGroup<FlxSprite>();
+        renderItemsPlayer = new FlxTypedGroup<FlxSprite>();
+        renderItemsOponent = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
+        add(renderItemsPlayer);
+        add(renderItemsOponent);
 
         for (num => character in characters) {
             createCharacter(100 + num*300, 50, FlxColor.WHITE, character);
+            createRenderPlayer(playerRenderx, playerRendery, character);
+            createRenderOponent(oponentRenderx, oponentRendery, character);
         }
 
         positionMenuItems(false);
@@ -134,6 +147,7 @@ class CustomMenuState extends MusicBeatState {
         cursorMovement();
         selectedVisualManagement();
         getOponents();
+        positionRender();
         myText.y += 10 * elapsed;
 
     }
@@ -221,7 +235,7 @@ class CustomMenuState extends MusicBeatState {
 
             var targetX = centerX + offset * spacing;
             var finalX = targetX - item.width / 2;
-            var finalY = FlxG.height / 2 - item.height / 2;
+            var finalY = FlxG.height - item.height / 2;
 
             var distance = Math.abs(item.x - finalX);
 
@@ -363,6 +377,110 @@ class CustomMenuState extends MusicBeatState {
             oponentIndex = curSelected;
         }
         
+    }
+
+    private function createRenderPlayer(x:Float,y:Float,character:String) {
+        var color:FlxColor;
+        switch(character) {
+            case 'beans':
+                color = FlxColor.MAGENTA;
+            case 'vam':
+                color = FlxColor.PURPLE;
+            case 'yabo':
+                color = FlxColor.RED;
+            case 'jay':
+                color = FlxColor.BLUE;
+            case 'cierra':
+                color = FlxColor.PINK;
+            default:
+                color = FlxColor.WHITE;
+        }
+
+
+
+        var square:FlxSprite = new FlxSprite();
+        square.makeGraphic(200,200,color);
+        square.x = x;
+        square.y = y;
+        renderItemsPlayer.add(square);
+
+    }
+
+    private function createRenderOponent(x:Float,y:Float,character:String) {
+        var color:FlxColor;
+        switch(character) {
+            case 'beans':
+                color = FlxColor.MAGENTA;
+            case 'vam':
+                color = FlxColor.PURPLE;
+            case 'yabo':
+                color = FlxColor.RED;
+            case 'jay':
+                color = FlxColor.BLUE;
+            case 'cierra':
+                color = FlxColor.PINK;
+            default:
+                color = FlxColor.WHITE;
+        }
+
+        
+
+        var square:FlxSprite = new FlxSprite();
+        square.makeGraphic(200,200,color);
+        x = FlxG.width - square.width - 20;
+        square.x = x;
+        square.y = y;
+        renderItemsOponent.add(square);
+
+    }
+
+    private function positionRender() {
+        if (!playerFlag && !oponentFlag) {
+            var i:Int = 0;
+            for (item in renderItemsPlayer) {
+                renderItemsOponent.members[i].visible = false;
+                if (i == curSelected) {
+                    item.visible = true;
+                } else {
+                    item.visible = false;
+                }
+                i += 1;
+            }
+        }
+
+        else if (playerFlag && !oponentFlag) {
+            var j:Int = 0;
+            renderItemsPlayer.members[playerIndex].visible = true;
+            for (item in renderItemsOponent) {
+                if (j == curSelected) {
+                    item.visible = true;
+                } else {
+                    item.visible = false;
+                }
+
+                if (j != playerIndex) {
+                    renderItemsPlayer.members[j].visible = false;
+                }
+                j += 1;
+            }
+        }
+
+        else {
+            renderItemsPlayer.members[playerIndex].visible = true;
+            renderItemsOponent.members[oponentIndex].visible = true;
+
+            var k:Int = 0;
+            for (item in renderItemsPlayer) {
+                if (k != playerIndex) {
+                    item.visible = false;
+                }
+
+                if (k != oponentIndex) {
+                    renderItemsOponent.members[k].visible = false;
+                }
+                k += 1;
+            }
+        }
     }
 
     private function createCharacter(x:Int, y:Int, color:FlxColor, character:String) {
