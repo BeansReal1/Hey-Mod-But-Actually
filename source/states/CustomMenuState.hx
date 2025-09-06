@@ -25,6 +25,8 @@ import substates.ResetScoreSubState;
 
 import backend.StageData;
 
+import openfl.display.BlendMode;
+
 //import states.menu.QuickPlaySong;
 //import states.menu.SessionEntry;
 import backend.Song;
@@ -97,6 +99,57 @@ class CustomMenuState extends MusicBeatState {
 
     override function create() {
         super.create();
+
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/background'));
+        bg.screenCenter();
+        bg.scale.set(0.70, 0.70);
+		add(bg);
+
+		var smoke:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/smoke'));
+        smoke.screenCenter();
+        smoke.scale.set(0.70, 0.70);
+		add(smoke);
+
+		var grid:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/gridHardLight'));
+        grid.screenCenter();
+        grid.blend = BlendMode.HARDLIGHT;
+        grid.scale.set(0.70, 0.70);
+		add(grid);
+
+        var halftoneBottom:FlxSprite = new FlxSprite(-80);
+        halftoneBottom.frames = Paths.getSparrowAtlas('charSelect/halftoneBottomAdd');
+		halftoneBottom.animation.addByPrefix('loop', 'halftoneBottom', 24, true);
+        halftoneBottom.scale.set(0.70, 0.70);
+        halftoneBottom.screenCenter();
+		halftoneBottom.animation.play('loop');
+        add(halftoneBottom);
+
+        var halftoneTop:FlxSprite = new FlxSprite(-80);
+        halftoneTop.frames = Paths.getSparrowAtlas('charSelect/halftoneTopAdd');
+		halftoneTop.animation.addByPrefix('loop', 'halftoneTop', 24, true);
+        halftoneTop.scale.set(0.70, 0.70);
+        halftoneTop.screenCenter();
+		halftoneTop.animation.play('loop');
+        add(halftoneTop);
+
+        var whiteCircle:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/whiteCircle'));
+        whiteCircle.screenCenter();
+        whiteCircle.scale.set(0.70, 0.70);
+		add(whiteCircle);
+
+        var framing:FlxSprite = new FlxSprite(-80);
+        framing.frames = Paths.getSparrowAtlas('charSelect/framingMultiply');
+		framing.animation.addByPrefix('loop', 'thing loop', 24, true);
+        framing.blend = BlendMode.MULTIPLY;
+        framing.scale.set(0.70, 0.70);
+        framing.screenCenter();
+		framing.animation.play('loop');
+        add(framing);
+
+        var VS:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/VS'));
+        VS.screenCenter();
+        VS.scale.set(0.70, 0.70);
+		add(VS);
 
         myText = new FlxText(100, 100, 300, "I'm a custom menu, Im cumming ohhhhh");
         selectText = new FlxText(500, 500, 300, "Selected: ");

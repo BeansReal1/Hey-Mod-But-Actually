@@ -2,64 +2,64 @@
 <TextureAtlas imagePath="halftoneBottomAdd.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="halftoneBottom instance 10000" x="10" y="10" width="1926" height="1078" frameX="-1" frameY="0" frameWidth="1927" frameHeight="1078"/>
-	<SubTexture name="halftoneBottom instance 10001" x="1946" y="10" width="1926" height="1078" frameX="-1" frameY="0" frameWidth="1927" frameHeight="1078"/>
-	<SubTexture name="halftoneBottom instance 10002" x="1946" y="10" width="1926" height="1078" frameX="0" frameY="0" frameWidth="1927" frameHeight="1078"/>
-	<SubTexture name="halftoneBottom instance 10003" x="3882" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10004" x="5819" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10005" x="5819" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10006" x="10" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10007" x="10" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10008" x="1947" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10009" x="3884" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10010" x="3884" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10011" x="5821" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10012" x="5821" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10013" x="10" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10014" x="1947" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10015" x="1947" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10016" x="3884" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10017" x="3884" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10018" x="5821" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10019" x="10" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10020" x="10" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10021" x="1947" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10022" x="1947" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10023" x="3884" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10024" x="5821" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10025" x="5821" y="3274" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10026" x="10" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10027" x="1947" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10028" x="1947" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10029" x="3884" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10030" x="3884" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10031" x="5821" y="4362" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10032" x="10" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10033" x="10" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10034" x="1947" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10035" x="1947" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10036" x="3884" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10037" x="5821" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10038" x="5821" y="5450" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10039" x="10" y="6538" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10040" x="10" y="6538" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10041" x="1946" y="10" width="1926" height="1078" frameX="0" frameY="0" frameWidth="1927" frameHeight="1078"/>
-	<SubTexture name="halftoneBottom instance 10042" x="3882" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10043" x="3882" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10044" x="5819" y="10" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10045" x="10" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10046" x="10" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10047" x="1947" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10048" x="1947" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10049" x="3884" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10050" x="5821" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10051" x="5821" y="1098" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10052" x="10" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10053" x="10" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10054" x="1947" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10055" x="3884" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10056" x="3884" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10057" x="5821" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10058" x="5821" y="2186" width="1927" height="1078"/>
-	<SubTexture name="halftoneBottom instance 10059" x="10" y="3274" width="1927" height="1078"/>
+	<SubTexture name="halftoneBottom0000" x="10" y="10" width="1927" height="1078" frameX="-1" frameY="0" frameWidth="1928" frameHeight="1078"/>
+	<SubTexture name="halftoneBottom0001" x="1947" y="10" width="1927" height="1078" frameX="-1" frameY="0" frameWidth="1928" frameHeight="1078"/>
+	<SubTexture name="halftoneBottom0002" x="1947" y="10" width="1927" height="1078" frameX="0" frameY="0" frameWidth="1928" frameHeight="1078"/>
+	<SubTexture name="halftoneBottom0003" x="3884" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0004" x="5822" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0005" x="5822" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0006" x="10" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0007" x="10" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0008" x="1948" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0009" x="3886" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0010" x="3886" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0011" x="5824" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0012" x="5824" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0013" x="10" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0014" x="1948" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0015" x="1948" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0016" x="3886" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0017" x="3886" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0018" x="5824" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0019" x="10" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0020" x="10" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0021" x="1948" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0022" x="1948" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0023" x="3886" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0024" x="5824" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0025" x="5824" y="3274" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0026" x="10" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0027" x="1948" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0028" x="1948" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0029" x="3886" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0030" x="3886" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0031" x="5824" y="4362" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0032" x="10" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0033" x="10" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0034" x="1948" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0035" x="1948" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0036" x="3886" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0037" x="5824" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0038" x="5824" y="5450" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0039" x="10" y="6538" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0040" x="10" y="6538" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0041" x="1948" y="6538" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0042" x="3884" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0043" x="3884" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0044" x="5822" y="10" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0045" x="10" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0046" x="10" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0047" x="1948" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0048" x="1948" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0049" x="3886" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0050" x="5824" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0051" x="5824" y="1098" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0052" x="10" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0053" x="10" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0054" x="1948" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0055" x="3886" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0056" x="3886" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0057" x="5824" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0058" x="5824" y="2186" width="1928" height="1078"/>
+	<SubTexture name="halftoneBottom0059" x="10" y="3274" width="1928" height="1078"/>
 </TextureAtlas>
