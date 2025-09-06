@@ -241,7 +241,7 @@ class CustomMenuState extends MusicBeatState {
         var i:Int = 0;
         for (item in menuItems) {
 
-            if(playerIndex == i || oponentIndex == i || !avaliableOponents.contains(characters[i])) {
+            if(playerIndex == i || oponentIndex == i || (!avaliableOponents.contains(characters[i]) && playerFlag)) {
                 item.alpha = 0.5;
             } else {
                 item.alpha = 1;
