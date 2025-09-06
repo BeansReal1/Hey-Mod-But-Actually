@@ -1,6 +1,6 @@
 {
-	"name": "Name",
-	"description": "Description",
+	"name": "Test Songs",
+	"description": "its test songs what the fuck do you want me to say",
 	"restart":false,
 	"runsGlobally": false,
 	"color": [170, 0, 255],

@@ -1,7 +1,7 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "sk-sonic-pov",
+		"player1": "bf",
 		"events": [
 			[
 				7500,
@@ -95,7 +95,7 @@
 			]
 		],
 		"gfVersion": "gf",
-		"player2": "sk-exe",
+		"player2": "bf",
 		"notes": [
 			{
 				"sectionBeats": 4,
