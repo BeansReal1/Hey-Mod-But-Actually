@@ -1,0 +1,86 @@
+{
+	"song": {
+		"events": [
+			[
+				7500,
+				[
+					[
+						"Play Animation",
+						"ysStart",
+						"dad"
+					]
+				]
+			],
+			[
+				7834.82142857143,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			],
+			[
+				8102.67857142857,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			],
+			[
+				8370.53571428571,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			],
+			[
+				43928.5714285714,
+				[
+					[
+						"Play Animation",
+						"ysStart",
+						"dad"
+					]
+				]
+			],
+			[
+				44263.3928571429,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			],
+			[
+				44531.25,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			],
+			[
+				44799.1071428571,
+				[
+					[
+						"Play Animation",
+						"ys",
+						"dad"
+					]
+				]
+			]
+		]
+	}
+}
