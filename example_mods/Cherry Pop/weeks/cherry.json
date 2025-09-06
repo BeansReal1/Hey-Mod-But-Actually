@@ -1,0 +1,27 @@
+{
+	"storyName": "Cherry Pop",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"cherry",
+			"mikuc",
+			[
+				126,
+				133,
+				235
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Custom Week"
+}

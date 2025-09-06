@@ -25,6 +25,16 @@ import substates.ResetScoreSubState;
 
 import backend.StageData;
 
+import states.menu.QuickPlaySong;
+import states.menu.SessionEntry;
+import backend.Song;
+import haxe.Json;
+import lime.utils.Assets;
+import backend.Highscore;
+import flixel.math.FlxRect;
+import flixel.addons.display.FlxSliceSprite;
+import states.menu.SongEntry;
+
 
 class CustomMenuState extends MusicBeatState {
     var myText:FlxText;
@@ -107,10 +117,37 @@ class CustomMenuState extends MusicBeatState {
 
     }
 
+
+    function enterSong(_name:String){
+        persistentUpdate = false;
+        var songLowercase:String = Paths.formatToSongPath(_name);
+        var poop:String = Highscore.formatSong(songLowercase, 1);
+
+        Song.loadFromJson(poop, songLowercase);
+        PlayState.isStoryMode = false;
+        PlayState.storyDifficulty = 1;
+
+        @:privateAccess
+        if(PlayState._lastLoadedModDirectory != Mods.currentModDirectory)
+        {
+            trace('CHANGED MOD DIRECTORY, RELOADING STUFF');
+            Paths.freeGraphicsFromMemory();
+        }
+        LoadingState.prepareToSong();
+        LoadingState.loadAndSwitchState(new PlayState());
+        #if !SHOW_LOADING_SCREEN FlxG.sound.music.stop(); #end
+
+        #if (MODS_ALLOWED && DISCORD_ALLOWED)
+        DiscordClient.loadModRPC();
+        #end
+    }
+
+
+
     function wrapFloat(value:Float, min:Float, max:Float):Float {
     var range = max - min;
     return ((value - min) % range + range) % range + min;
-}
+    }
 
     function positionMenuItems(animated:Bool = false) {
         var itemCount:Int = menuItems.length;

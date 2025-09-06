@@ -1,0 +1,101 @@
+{
+	"camera_boyfriend": [
+		50,
+		-100
+	],
+	"_editorMeta": {
+		"boyfriend": "mikuc-mouth",
+		"dad": "dad",
+		"gf": "gf"
+	},
+	"girlfriend": [
+		400,
+		-45
+	],
+	"isPixelStage": false,
+	"boyfriend": [
+		750,
+		310
+	],
+	"camera_girlfriend": [
+		1000,
+		600
+	],
+	"objects": [
+		{
+			"x": -749,
+			"y": -356,
+			"scale": [
+				2.9,
+				2.9
+			],
+			"image": "cherry_pop_bg",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite2",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"type": "sprite"
+		},
+		{
+			"type": "gf"
+		},
+		{
+			"x": -260,
+			"y": -752,
+			"scale": [
+				1,
+				1
+			],
+			"image": "mikuc",
+			"flipX": false,
+			"filters": 3,
+			"color": "FFFFFF",
+			"angle": 0,
+			"name": "sprite1",
+			"firstAnimation": "idle",
+			"antialiasing": true,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1,
+			"animations": [
+				{
+					"loop": true,
+					"offsets": null,
+					"anim": "idle",
+					"fps": 7,
+					"name": "mikuc idle",
+					"indices": []
+				}
+			],
+			"type": "animatedSprite"
+		},
+		{
+			"type": "dad"
+		},
+		{
+			"type": "boyfriend"
+		}
+	],
+	"defaultZoom": 0.4,
+	"opponent": [
+		-8790,
+		1740
+	],
+	"directory": "",
+	"camera_opponent": [
+		0,
+		0
+	],
+	"hide_girlfriend": true
+}
