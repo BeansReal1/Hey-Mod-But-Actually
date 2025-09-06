@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="framingMultiply.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="thing loop instance 10000" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10001" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10002" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10003" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10004" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10005" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10006" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10007" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10008" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10009" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10010" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10011" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10012" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10013" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10014" x="10" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10015" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10016" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10017" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10018" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10019" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10020" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10021" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10022" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10023" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10024" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10025" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10026" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10027" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10028" x="1940" y="10" width="1920" height="1080"/>
+	<SubTexture name="thing loop instance 10029" x="1940" y="10" width="1920" height="1080"/>
+</TextureAtlas>
