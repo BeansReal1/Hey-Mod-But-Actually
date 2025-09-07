@@ -130,6 +130,7 @@ class CustomMenuState extends MusicBeatState {
         halftoneTop.scale.set(0.70, 0.70);
         halftoneTop.screenCenter();
 		halftoneTop.animation.play('loop');
+        halftoneTop.flipX = true;
         add(halftoneTop);
 
         var whiteCircle:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/whiteCircle'));
@@ -146,6 +147,8 @@ class CustomMenuState extends MusicBeatState {
 		framing.animation.play('loop');
         add(framing);
 
+        /* later on you do this because you know the render code better, have it so that the VS image appears over the renders  ok? ok */
+        
         var VS:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/VS'));
         VS.screenCenter();
         VS.scale.set(0.70, 0.70);
