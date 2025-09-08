@@ -173,7 +173,7 @@ class CustomMenuState extends MusicBeatState {
         selectFlag = false;
         playerFlag = false;
         oponentFlag = false;
-        add(cursor);
+        
         add(myText);
         add(selectText);
         add(playerText);
@@ -196,6 +196,7 @@ class CustomMenuState extends MusicBeatState {
         }
 
         positionMenuItems(false);
+        add(cursor);
         add(VS);
 
         createHugeFuckingSquare();
@@ -360,8 +361,8 @@ class CustomMenuState extends MusicBeatState {
     }
 
     private function cursorMovement() {
-        cursor.x = FlxG.width / 2;
-        cursor.y = FlxG.height / 2;
+        cursor.x = FlxG.width / 2 - cursor.width/2;
+        cursor.y = 530;
 
     }
 
