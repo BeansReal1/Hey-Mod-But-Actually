@@ -47,6 +47,8 @@ class CustomMenuState extends MusicBeatState {
     var playerIndex:Int = -1;
     var oponentIndex:Int = -1;
 
+    var renderTweenTime:Float = 0.5;
+
     var selectString:String;
 
     var characterMoveValue:Int = 20;
@@ -152,7 +154,7 @@ class CustomMenuState extends MusicBeatState {
         var VS:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/VS'));
         VS.screenCenter();
         VS.scale.set(0.70, 0.70);
-		add(VS);
+		
 
         myText = new FlxText(100, 100, 300, "I'm a custom menu, Im cumming ohhhhh");
         selectText = new FlxText(500, 500, 300, "Selected: ");
@@ -187,11 +189,12 @@ class CustomMenuState extends MusicBeatState {
 
         for (num => character in characters) {
             createCharacter(100 + num*300, 50, FlxColor.WHITE, character);
-            createRenderPlayer(playerRenderx, playerRendery, character);
-            createRenderOponent(oponentRenderx, oponentRendery, character);
+            createRenderPlayer(0, playerRendery, character);
+            createRenderOponent(FlxG.width, oponentRendery, character);
         }
 
         positionMenuItems(false);
+        add(VS);
     }
 
     override function update(elapsed:Float) {
@@ -456,7 +459,7 @@ class CustomMenuState extends MusicBeatState {
 
         var square:FlxSprite = new FlxSprite();
         square.makeGraphic(200,200,color);
-        square.x = x;
+        square.x = x - square.width;
         square.y = y;
         renderItemsPlayer.add(square);
 
@@ -483,7 +486,7 @@ class CustomMenuState extends MusicBeatState {
 
         var square:FlxSprite = new FlxSprite();
         square.makeGraphic(200,200,color);
-        x = FlxG.width - square.width - 20;
+        x = FlxG.width + square.width;
         square.x = x;
         square.y = y;
         renderItemsOponent.add(square);
@@ -497,8 +500,13 @@ class CustomMenuState extends MusicBeatState {
                 renderItemsOponent.members[i].visible = false;
                 if (i == curSelected) {
                     item.visible = true;
+                    if (item.x <= 0 - item.width) {
+                        FlxTween.tween(item, {x: playerRenderx, y: playerRendery}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
+                    }
+                    
                 } else {
                     item.visible = false;
+                    item.x = 0 - item.width;
                 }
                 i += 1;
             }
@@ -510,12 +518,18 @@ class CustomMenuState extends MusicBeatState {
             for (item in renderItemsOponent) {
                 if (j == curSelected) {
                     item.visible = true;
+                    if (item.x >= FlxG.width + item.width) {
+                        FlxTween.tween(item, {x: oponentRenderx - item.width/2 - 20, y: oponentRendery}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
+                    }
+                    
                 } else {
                     item.visible = false;
+                    item.x = FlxG.width + item.width;
                 }
 
                 if (j != playerIndex) {
                     renderItemsPlayer.members[j].visible = false;
+                    renderItemsPlayer.members[j].x = 0 - renderItemsPlayer.members[j].width;
                 }
                 j += 1;
             }
@@ -529,10 +543,12 @@ class CustomMenuState extends MusicBeatState {
             for (item in renderItemsPlayer) {
                 if (k != playerIndex) {
                     item.visible = false;
+                    item.x = 0 - item.width;
                 }
 
                 if (k != oponentIndex) {
                     renderItemsOponent.members[k].visible = false;
+                    renderItemsOponent.members[k].x = FlxG.width + renderItemsOponent.members[k].width;
                 }
                 k += 1;
             }
