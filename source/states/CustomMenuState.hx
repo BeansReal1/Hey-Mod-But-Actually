@@ -47,7 +47,7 @@ class CustomMenuState extends MusicBeatState {
     var playerIndex:Int = -1;
     var oponentIndex:Int = -1;
 
-    var renderTweenTime:Float = 0.5;
+    var renderTweenTime:Float = 0.3;
 
     var selectString:String;
 
@@ -62,6 +62,7 @@ class CustomMenuState extends MusicBeatState {
     var renderItemsOponent:FlxTypedGroup<FlxSprite>;
     var playerSelected:FlxSprite = null;
     var oponentSelected:FlxSprite = null;
+    var hugeFuckingSquare:FlxSprite = null;
     var cursor:FlxSprite;
     var selectedItem:FlxSprite;
     public static var curSelected:Int = 0;
@@ -150,6 +151,7 @@ class CustomMenuState extends MusicBeatState {
         add(framing);
 
         /* later on you do this because you know the render code better, have it so that the VS image appears over the renders  ok? ok */
+        // hey I did it ok I fucking did it yeah ok
         
         var VS:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/VS'));
         VS.screenCenter();
@@ -195,6 +197,9 @@ class CustomMenuState extends MusicBeatState {
 
         positionMenuItems(false);
         add(VS);
+
+        createHugeFuckingSquare();
+        add(hugeFuckingSquare);
     }
 
     override function update(elapsed:Float) {
@@ -202,13 +207,19 @@ class CustomMenuState extends MusicBeatState {
         backOutCheck();
         selectCheck();
         textDisplay();
-        selectSong();
+        hugeFuckingSquareChecks();
         cursorMovement();
         selectedVisualManagement();
         getOponents();
         positionRender();
         myText.y += 10 * elapsed;
 
+    }
+
+    function createHugeFuckingSquare() {
+        hugeFuckingSquare = new FlxSprite();
+        hugeFuckingSquare.makeGraphic(FlxG.width,FlxG.height, FlxColor.BLACK);
+        hugeFuckingSquare.alpha = 0;
     }
 
     function getOponents() {
@@ -277,36 +288,59 @@ class CustomMenuState extends MusicBeatState {
     return ((value - min) % range + range) % range + min;
     }
 
-    function positionMenuItems(animated:Bool = false) {
+
+
+    function positionMenuItems(animated:Bool = false, totalDuration:Float = 0.2) {
         var itemCount:Int = menuItems.length;
         var screenWidth:Float = FlxG.width;
-        
+        var screenHeight:Float = FlxG.height;
+
         var spacing:Float = screenWidth / itemCount;
         var centerX:Float = screenWidth / 2;
+
+        var exitDuration:Float = 0.07;
+        var entryDuration:Float = totalDuration - exitDuration;
 
         for (i in 0...itemCount) {
             var item = menuItems.members[i];
 
-            // relative index
+
             var offset = i - curSelected;
             if (offset > itemCount / 2) offset -= itemCount;
             if (offset < -itemCount / 2) offset += itemCount;
 
             var targetX = centerX + offset * spacing;
             var finalX = targetX - item.width / 2;
-            var finalY = FlxG.height - item.height / 2;
-
-            var distance = Math.abs(item.x - finalX);
+            var baseY = screenHeight - item.height / 2;
+            var finalY = baseY - (offset == 0 ? 40 : 0);
 
             if (animated) {
-                FlxTween.tween(item, {x: finalX, y: finalY}, 0.3, {ease: FlxEase.quadOut});
+                var wrapThreshold = screenWidth * 0.6;
+                var isWrapping = Math.abs(item.x - finalX) > wrapThreshold;
+                var comingFromLeft = finalX < item.x;
+
+                if (isWrapping) {
+
+                    var exitX = comingFromLeft ? screenWidth + item.width : -item.width;
+                    FlxTween.tween(item, {x: exitX}, exitDuration, {
+                        ease: FlxEase.quadIn,
+                        onComplete: function(_) {
+
+                            item.x = comingFromLeft ? -item.width : screenWidth + item.width;
+                            item.y = finalY;
+
+
+                            FlxTween.tween(item, {x: finalX, y: finalY}, entryDuration);
+                        }
+                    });
+                } else {
+
+                    FlxTween.tween(item, {x: finalX, y: finalY}, totalDuration);
+                }
             } else {
                 item.x = finalX;
                 item.y = finalY;
             }
-
-            
-
         }
     }
 
@@ -332,7 +366,7 @@ class CustomMenuState extends MusicBeatState {
     }
 
     private function selectSong() {
-        if (playerFlag && oponentFlag) {
+
             // Start the song or whatever depending on player and oponent
 
             if (characters[playerIndex] == 'beans') {
@@ -367,7 +401,7 @@ class CustomMenuState extends MusicBeatState {
             playerIndex = -1;
             oponentIndex = -1;
             return;
-        }
+
     }
 
     private function textDisplay() {
@@ -405,14 +439,27 @@ class CustomMenuState extends MusicBeatState {
 		}
     }
 
+    private function hugeFuckingSquareChecks() {
+        if (playerFlag && oponentFlag) {
+            hugeFuckingSquare.alpha = 0.5;
+        } else {
+            hugeFuckingSquare.alpha = 0;
+        }
+    }
+
     private function selectCheck() {
 
-        if (controls.UI_RIGHT_P) {
+        if (controls.UI_RIGHT_P && !(playerFlag && oponentFlag)) {
             changeItem(1);
-        } else if (controls.UI_LEFT_P) {
+        } else if (controls.UI_LEFT_P && !(playerFlag && oponentFlag)) {
             changeItem(-1);
         } else if (controls.ACCEPT) {
-            selectCharacter(menuItems.members[curSelected]);
+            if (playerFlag && oponentFlag) {
+                selectSong();
+            } else {
+                selectCharacter(menuItems.members[curSelected]);
+            }
+            
         }
 
 
@@ -585,16 +632,11 @@ class CustomMenuState extends MusicBeatState {
         curSelected = FlxMath.wrap(curSelected + change, 0, characters.length - 1);
         FlxG.sound.play(Paths.sound('scrollMenu'));
         selectedItem = menuItems.members[curSelected];
-        positionMenuItems(false);
+        positionMenuItems(true);
 
         var i:Int = 0;
         for (item in menuItems) {
-            var prevY = item.y;
-            if (item == selectedItem) {
-                item.y = item.y - selectedOffsetY;
-            } else {
-                item.y = prevY;
-            }
+
 
             if(playerIndex == i || oponentIndex == i || !avaliableOponents.contains(characters[i])) {
                 item.alpha = 0.5;
