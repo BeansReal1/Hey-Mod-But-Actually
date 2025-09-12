@@ -266,6 +266,7 @@ class CustomMenuState extends MusicBeatState {
         Song.loadFromJson(poop, songLowercase);
         PlayState.isStoryMode = false;
         PlayState.storyDifficulty = 1;
+        Paths.freeGraphicsFromMemory();
 
         @:privateAccess
         if(PlayState._lastLoadedModDirectory != Mods.currentModDirectory)
