@@ -175,15 +175,15 @@ class MainMenuState extends MusicBeatState
 	}
 
 	function titleChecks() {
-		var cameraTweenDuration:Float = 0.75;
+		var cameraTweenDuration:Float = 1;
 		if (controls.ACCEPT && inTitle) {
-			FlxTween.tween(FlxG.camera, {zoom: cameraZoom}, cameraTweenDuration, {ease: FlxEase.sineInOut});
+			FlxTween.tween(FlxG.camera, {zoom: cameraZoom}, cameraTweenDuration, {ease: FlxEase.quartOut});
 			haxe.Timer.delay(() -> initMenu(), 100);
 
 		}
 
 		if (controls.BACK && !inTitle) {
-			FlxTween.tween(FlxG.camera, {zoom: 1}, cameraTweenDuration, {ease: FlxEase.sineInOut});
+			FlxTween.tween(FlxG.camera, {zoom: 1}, cameraTweenDuration, {ease: FlxEase.quartOut});
 			haxe.Timer.delay(() -> unInitMenu(), 100);
 
 		}
