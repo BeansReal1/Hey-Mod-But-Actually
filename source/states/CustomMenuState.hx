@@ -101,6 +101,9 @@ class CustomMenuState extends MusicBeatState {
     var avaliableOponents:Array<String> = [];
 
     override function create() {
+        Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
+
         super.create();
 
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/background'));
@@ -652,5 +655,7 @@ class CustomMenuState extends MusicBeatState {
 
     override function destroy() {
         super.destroy();
+        Paths.clearStoredMemory();
+		Paths.clearUnusedMemory();
     }
 }
