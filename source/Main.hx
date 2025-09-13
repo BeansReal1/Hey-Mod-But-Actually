@@ -17,6 +17,7 @@ import openfl.events.Event;
 import openfl.display.StageScaleMode;
 import lime.app.Application;
 import states.TitleState;
+import states.MainMenuState;
 
 #if HSCRIPT_ALLOWED
 import crowplexus.iris.Iris;

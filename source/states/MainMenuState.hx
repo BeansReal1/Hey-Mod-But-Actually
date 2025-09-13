@@ -63,7 +63,7 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = 0.25;
+		var yScroll:Float = 0.05;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg_arcade'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
@@ -307,10 +307,10 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.BACK && inTitle)
 			{
-				selectedSomethin = true;
-				FlxG.mouse.visible = false;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				//selectedSomethin = true;
+				//FlxG.mouse.visible = false;
+				//FlxG.sound.play(Paths.sound('cancelMenu'));
+				//MusicBeatState.switchState(new TitleState());
 			}
 
 			if ((controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse)) && !inTitle)
