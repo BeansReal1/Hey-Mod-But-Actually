@@ -18,6 +18,7 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
 	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
+	var inTitle:Bool = true;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var leftItem:FlxSprite;
@@ -25,11 +26,11 @@ class MainMenuState extends MusicBeatState
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
-		'story_mode',
+		'custom',
 		'freeplay',
+		'options',
 		#if MODS_ALLOWED 'mods', #end
-		'credits',
-		'custom'
+		'credits'
 	];
 
 	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
@@ -125,6 +126,7 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		FlxG.camera.follow(camFollow, null, 0.15);
+		menuVisibility(false);
 	}
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
@@ -142,15 +144,45 @@ class MainMenuState extends MusicBeatState
 		return menuItem;
 	}
 
+	function menuVisibility(visibility:Bool) {
+		for (item in menuItems) {
+			item.visible = visibility;
+		}
+	}
+
+	function initMenu() {
+		inTitle = false;
+		menuVisibility(true);
+	}
+
+	function unInitMenu() {
+		inTitle = true;
+		menuVisibility(false);
+	}
+
+	function titleChecks() {
+		if (controls.ACCEPT && inTitle) {
+			haxe.Timer.delay(() -> initMenu(), 100);
+			// zoom camera
+		}
+
+		if (controls.BACK && !inTitle) {
+			haxe.Timer.delay(() -> unInitMenu(), 100);
+			// zoom camera
+		}
+
+	}
+
 	var selectedSomethin:Bool = false;
 
 	var timeNotMoving:Float = 0;
 	override function update(elapsed:Float)
 	{
+		titleChecks();
 		if (FlxG.sound.music.volume < 0.8)
 			FlxG.sound.music.volume = Math.min(FlxG.sound.music.volume + 0.5 * elapsed, 0.8);
 
-		if (!selectedSomethin)
+		if (!selectedSomethin && !inTitle)
 		{
 			if (controls.UI_UP_P)
 				changeItem(-1);
@@ -264,7 +296,7 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
+			if ((controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse)) && !inTitle)
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 				selectedSomethin = true;
