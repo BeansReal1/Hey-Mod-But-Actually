@@ -79,6 +79,33 @@ class MainMenuState extends MusicBeatState
 		arcadeMachine.y = -250;
         add(arcadeMachine);
 
+		var arcadeButtons:FlxSprite = new FlxSprite(-80);
+        arcadeButtons.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeButtons');
+        arcadeButtons.scale.set(0.80, 0.80);
+		arcadeButtons.scrollFactor.set(0, yScroll);
+		arcadeButtons.animation.addByPrefix('idle', 'arcadeButtons idle', 24, true);
+		arcadeButtons.animation.addByPrefix('select', 'arcadeButtons select', 24, true);
+		arcadeButtons.animation.addByPrefix('back', 'arcadeButtons back', 24, true);
+		arcadeButtons.animation.addByPrefix('start', 'arcadeButtons start', 24, true);
+		arcadeButtons.x = 560;
+		arcadeButtons.y = 540;
+		arcadeButtons.animation.play('idle');
+        add(arcadeButtons);
+
+		var arcadeStick:FlxSprite = new FlxSprite(-80);
+        arcadeStick.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeStick');
+        arcadeStick.scale.set(0.80, 0.80);
+		arcadeStick.scrollFactor.set(0, yScroll);
+		arcadeStick.animation.addByPrefix('idle', 'arcadeStick idle', 24, true);
+		arcadeStick.animation.addByPrefix('left', 'arcadeStick left', 24, true);
+		arcadeStick.animation.addByPrefix('up', 'arcadeStick up', 24, true);
+		arcadeStick.animation.addByPrefix('right', 'arcadeStick right', 24, true);
+		arcadeStick.animation.addByPrefix('down', 'arcadeStick down', 24, true);
+		arcadeStick.x = 430;
+		arcadeStick.y = 480;
+		arcadeStick.animation.play('idle');
+        add(arcadeStick);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
