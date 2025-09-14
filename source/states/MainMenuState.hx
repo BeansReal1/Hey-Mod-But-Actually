@@ -250,20 +250,17 @@ class MainMenuState extends MusicBeatState
 			arcadeStick.animation.play('idle');
 		}
 
-
 	}
 
-	function arcadeButtonAnims() {
-		if (controls.ACCEPT && inTitle) {
-			arcadeButtons.animation.play('start');
-		} else if (controls.ACCEPT && !inTitle){
-			arcadeButtons.animation.play('select');
-		} else if (controls.BACK) {
-			arcadeButtons.animation.play('back');
+	function arcadeStickOffsets() {
+		if (arcadeStick.animation.name == 'left') {
+			arcadeStick.offset.set(2.25, 0);
 		} else {
-			arcadeButtons.animation.play('idle');
+			arcadeStick.offset.set(0,0);
 		}
 	}
+
+
 
 	var selectedSomethin:Bool = false;
 
@@ -272,7 +269,7 @@ class MainMenuState extends MusicBeatState
 	{
 		titleChecks();
 		arcadeStickAnims();
-		//arcadeButtonAnims();
+		arcadeStickOffsets();
 		if (FlxG.sound.music.volume < 0.8)
 			FlxG.sound.music.volume = Math.min(FlxG.sound.music.volume + 0.5 * elapsed, 0.8);
 
@@ -395,6 +392,9 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 				selectedSomethin = true;
 				FlxG.mouse.visible = false;
+				arcadeButtons.animation.play('select');
+				haxe.Timer.delay(() -> arcadeButtons.animation.play('idle'), 100);
+				
 
 				//if (ClientPrefs.data.flashing)
 					//FlxFlicker.flicker(magenta, 1.1, 0.15, false);
