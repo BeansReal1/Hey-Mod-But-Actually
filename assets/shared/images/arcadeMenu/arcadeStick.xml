@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arcadeStick.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arcadeStick down0000" x="10" y="10" width="112" height="126" frameX="0" frameY="-6" frameWidth="112" frameHeight="132"/>
+	<SubTexture name="arcadeStick down0001" x="10" y="10" width="112" height="126" frameX="0" frameY="-6" frameWidth="112" frameHeight="132"/>
+	<SubTexture name="arcadeStick down0002" x="132" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick down0003" x="132" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick down0004" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick down0005" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick idle0000" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick left0000" x="376" y="10" width="115" height="128" frameX="0" frameY="-4" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick left0001" x="376" y="10" width="115" height="128" frameX="0" frameY="-4" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick left0002" x="10" y="152" width="112" height="132" frameX="-3" frameY="0" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick left0003" x="10" y="152" width="112" height="132" frameX="-3" frameY="0" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick left0004" x="132" y="152" width="112" height="132" frameX="-3" frameY="0" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick left0005" x="132" y="152" width="112" height="132" frameX="-3" frameY="0" frameWidth="115" frameHeight="132"/>
+	<SubTexture name="arcadeStick right0000" x="254" y="152" width="114" height="128" frameX="0" frameY="-4" frameWidth="114" frameHeight="132"/>
+	<SubTexture name="arcadeStick right0001" x="254" y="152" width="114" height="128" frameX="0" frameY="-4" frameWidth="114" frameHeight="132"/>
+	<SubTexture name="arcadeStick right0002" x="378" y="152" width="112" height="132" frameX="0" frameY="0" frameWidth="114" frameHeight="132"/>
+	<SubTexture name="arcadeStick right0003" x="378" y="152" width="112" height="132" frameX="0" frameY="0" frameWidth="114" frameHeight="132"/>
+	<SubTexture name="arcadeStick right0004" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick right0005" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick up0000" x="10" y="294" width="112" height="126" frameX="0" frameY="-6" frameWidth="112" frameHeight="132"/>
+	<SubTexture name="arcadeStick up0001" x="10" y="294" width="112" height="126" frameX="0" frameY="-6" frameWidth="112" frameHeight="132"/>
+	<SubTexture name="arcadeStick up0002" x="132" y="294" width="112" height="132"/>
+	<SubTexture name="arcadeStick up0003" x="132" y="294" width="112" height="132"/>
+	<SubTexture name="arcadeStick up0004" x="254" y="10" width="112" height="132"/>
+	<SubTexture name="arcadeStick up0005" x="254" y="10" width="112" height="132"/>
+</TextureAtlas>

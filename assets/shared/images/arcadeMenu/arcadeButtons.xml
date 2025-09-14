@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arcadeButtons.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arcadeButtons back0000" x="10" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons back0001" x="10" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons back0002" x="342" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons back0003" x="342" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons back0004" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons back0005" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons idle0000" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0000" x="10" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0001" x="10" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0002" x="342" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0003" x="342" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0004" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons select0005" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0000" x="674" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0001" x="674" y="92" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0002" x="10" y="174" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0003" x="10" y="174" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0004" x="674" y="10" width="322" height="72"/>
+	<SubTexture name="arcadeButtons start0005" x="674" y="10" width="322" height="72"/>
+</TextureAtlas>
