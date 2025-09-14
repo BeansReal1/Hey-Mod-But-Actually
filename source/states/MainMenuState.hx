@@ -254,8 +254,10 @@ class MainMenuState extends MusicBeatState
 	}
 
 	function arcadeButtonAnims() {
-		if (controls.ACCEPT) {
+		if (controls.ACCEPT && inTitle) {
 			arcadeButtons.animation.play('start');
+		} else if (controls.ACCEPT && !inTitle){
+			arcadeButtons.animation.play('select');
 		} else if (controls.BACK) {
 			arcadeButtons.animation.play('back');
 		} else {
