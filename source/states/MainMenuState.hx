@@ -72,6 +72,13 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
+		var arcadeMachine:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/arcadeMachine'));
+        arcadeMachine.scale.set(0.80, 0.80);
+		arcadeMachine.scrollFactor.set(0, yScroll);
+        arcadeMachine.screenCenter();
+		arcadeMachine.y = -250;
+        add(arcadeMachine);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
