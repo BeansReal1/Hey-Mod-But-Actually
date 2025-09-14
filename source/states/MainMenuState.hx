@@ -24,6 +24,9 @@ class MainMenuState extends MusicBeatState
 	var leftItem:FlxSprite;
 	var rightItem:FlxSprite;
 
+	var arcadeButtons:FlxSprite;
+	var arcadeStick:FlxSprite;
+
 	var cameraZoom:Float = 1.5;
 
 	//Centered/Text options
@@ -79,7 +82,7 @@ class MainMenuState extends MusicBeatState
 		arcadeMachine.y = -250;
         add(arcadeMachine);
 
-		var arcadeButtons:FlxSprite = new FlxSprite(-80);
+		arcadeButtons = new FlxSprite(-80);
         arcadeButtons.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeButtons');
         arcadeButtons.scale.set(0.80, 0.80);
 		arcadeButtons.scrollFactor.set(0, yScroll);
@@ -92,7 +95,7 @@ class MainMenuState extends MusicBeatState
 		arcadeButtons.animation.play('idle');
         add(arcadeButtons);
 
-		var arcadeStick:FlxSprite = new FlxSprite(-80);
+		arcadeStick = new FlxSprite(-80);
         arcadeStick.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeStick');
         arcadeStick.scale.set(0.80, 0.80);
 		arcadeStick.scrollFactor.set(0, yScroll);
@@ -170,7 +173,12 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.zoom = 1;
 
 		FlxG.camera.follow(camFollow, null, 0.15);
-		menuVisibility(false);
+		var titleStart:Bool = true;
+		if (titleStart) {
+			menuVisibility(false);
+		} else {
+			initMenu();
+		}
 	}
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
@@ -197,31 +205,62 @@ class MainMenuState extends MusicBeatState
 	}
 
 	function initMenu() {
-		inTitle = false;
+		
 		menuVisibility(true);
 		FlxG.sound.play(Paths.sound('confirmMenu'));
+		arcadeButtons.animation.play('idle');
+		inTitle = false;
 	}
 
 	function unInitMenu() {
-		inTitle = true;
+		
 		menuVisibility(false);
 		FlxG.sound.play(Paths.sound('cancelMenu'));
+		arcadeButtons.animation.play('idle');
+		inTitle = true;
 	}
 
 	function titleChecks() {
 		var cameraTweenDuration:Float = 1;
 		if (controls.ACCEPT && inTitle) {
 			FlxTween.tween(FlxG.camera, {zoom: cameraZoom}, cameraTweenDuration, {ease: FlxEase.quartOut});
+			arcadeButtons.animation.play('start');
 			haxe.Timer.delay(() -> initMenu(), 100);
-
 		}
 
 		if (controls.BACK && !inTitle) {
 			FlxTween.tween(FlxG.camera, {zoom: 1}, cameraTweenDuration, {ease: FlxEase.quartOut});
+			arcadeButtons.animation.play('back');
 			haxe.Timer.delay(() -> unInitMenu(), 100);
 
 		}
 
+	}
+
+	function arcadeStickAnims() {
+		if (controls.UI_LEFT) {
+			arcadeStick.animation.play('left');
+		} else if (controls.UI_RIGHT) {
+			arcadeStick.animation.play('right');
+		} else if (controls.UI_DOWN) {
+			arcadeStick.animation.play('down');
+		} else if (controls.UI_UP) {
+			arcadeStick.animation.play('up');
+		} else {
+			arcadeStick.animation.play('idle');
+		}
+
+
+	}
+
+	function arcadeButtonAnims() {
+		if (controls.ACCEPT) {
+			arcadeButtons.animation.play('start');
+		} else if (controls.BACK) {
+			arcadeButtons.animation.play('back');
+		} else {
+			arcadeButtons.animation.play('idle');
+		}
 	}
 
 	var selectedSomethin:Bool = false;
@@ -230,6 +269,8 @@ class MainMenuState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		titleChecks();
+		arcadeStickAnims();
+		//arcadeButtonAnims();
 		if (FlxG.sound.music.volume < 0.8)
 			FlxG.sound.music.volume = Math.min(FlxG.sound.music.volume + 0.5 * elapsed, 0.8);
 
