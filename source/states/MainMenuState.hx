@@ -5,6 +5,11 @@ import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import flixel.addons.display.FlxTiledSprite; // ??? idk LOL
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween; // might need these two as well 
+import flixel.FlxG; // and this too
+import flixel.FlxSprite; // actually why dont we have this one already either
 
 enum MainMenuColumn {
 	LEFT;
@@ -26,6 +31,13 @@ class MainMenuState extends MusicBeatState
 
 	var arcadeButtons:FlxSprite;
 	var arcadeStick:FlxSprite;
+
+	// im just sorry ok im trying  all the looping shit is under this
+
+	var halftoneBlue:FlxTiledSprite;
+	var cityBack:FlxTiledSprite;
+	var cityMid:FlxTiledSprite;
+	var cityFrontAndReflection:FlxTiledSprite;
 
 	var cameraZoom:Float = 1.5;
 
@@ -74,6 +86,58 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		add(bg);
+
+		var screenBackdrop:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/arcadeScreen/screenBackdrop'));
+        screenBackdrop.scale.set(0.80, 0.80);
+		screenBackdrop.scrollFactor.set(0, yScroll);
+        screenBackdrop.screenCenter();
+		screenBackdrop.y = 0;
+        add(screenBackdrop);
+
+
+		// i have no clue what im doing BUT i was told FlxTiledSprite can loop things so bear with me
+
+		halftoneBlue = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/halftoneBlue'), 475, 200, true, false);
+		halftoneBlue.scale.set(0.80, 0.80);
+		halftoneBlue.scrollFactor.set(0, yScroll);
+        halftoneBlue.screenCenter();
+		halftoneBlue.x = 400;
+		halftoneBlue.y = 200;
+        add(halftoneBlue);
+
+		cityBack = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityBack'), 475, 200, true, false);
+		cityBack.scale.set(0.80, 0.80);
+		cityBack.scrollFactor.set(0, yScroll);
+        cityBack.screenCenter();
+		cityBack.x = 400;
+		cityBack.y = 200;
+        add(cityBack);
+
+		cityMid = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityMid'), 475, 200, true, false);
+		cityMid.scale.set(0.80, 0.80);
+		cityMid.scrollFactor.set(0, yScroll);
+        cityMid.screenCenter();
+		cityMid.x = 400;
+		cityMid.y = 200;
+        add(cityMid);
+
+		var water = new FlxSprite();
+		water.makeGraphic(510, 200, FlxColor.fromString("0xABAFC2"));
+        water.scale.set(0.80, 0.80);
+		water.scrollFactor.set(0, yScroll);
+        water.screenCenter();
+		water.y = 380;
+        add(water);
+
+		cityFrontAndReflection = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityFrontAndReflection'), 475, 625, true, false);
+		cityFrontAndReflection.scale.set(0.80, 0.80);
+		cityFrontAndReflection.scrollFactor.set(0, yScroll);
+        cityFrontAndReflection.screenCenter();
+		cityFrontAndReflection.x = 400;
+		cityFrontAndReflection.y = 178;
+        add(cityFrontAndReflection);
+
+		// ok screen stuff over time for the rest of the bg eto bleeehhh
 
 		var arcadeMachine:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/arcadeMachine'));
         arcadeMachine.scale.set(0.80, 0.80);
@@ -267,6 +331,14 @@ class MainMenuState extends MusicBeatState
 	var timeNotMoving:Float = 0;
 	override function update(elapsed:Float)
 	{
+
+		// dont mind me squeezing in here heh this is the actual moving part		
+		super.update(elapsed);
+		halftoneBlue.scrollX -= -50 * elapsed;
+		cityBack.scrollX -= 10 * elapsed;
+		cityMid.scrollX -= 40 * elapsed;
+		cityFrontAndReflection.scrollX -= 100 * elapsed;
+
 		titleChecks();
 		arcadeStickAnims();
 		arcadeStickOffsets();
