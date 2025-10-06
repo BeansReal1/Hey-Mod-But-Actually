@@ -307,8 +307,9 @@ class MainMenuState extends MusicBeatState
 			}
 		} else {
 			var i:Int = 0;
+			var offset:Int = 500;
 			for (item in menuItems) {
-				FlxTween.tween(item, {x: item.x, y: FlxG.height}, tweenDuration, {ease: FlxEase.quartIn});
+				FlxTween.tween(item, {x: item.x, y: item.y + offset}, tweenDuration, {ease: FlxEase.quartIn});
 				i++;
 			}
 		}
