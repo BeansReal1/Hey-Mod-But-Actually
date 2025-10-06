@@ -311,7 +311,7 @@ class CustomMenuState extends MusicBeatState {
         var screenWidth:Float = FlxG.width;
         var screenHeight:Float = FlxG.height;
 
-        var spacing:Float = screenWidth / itemCount;
+        var spacing:Float = screenWidth / 5;
         var centerX:Float = screenWidth / 2;
 
         var exitDuration:Float = 0.07;
@@ -332,6 +332,7 @@ class CustomMenuState extends MusicBeatState {
 
             if (animated) {
                 var wrapThreshold = screenWidth * 0.6;
+                //var wrapThreshold = screenWidth + item.width;
                 var isWrapping = Math.abs(item.x - finalX) > wrapThreshold;
                 var comingFromLeft = finalX < item.x;
 
