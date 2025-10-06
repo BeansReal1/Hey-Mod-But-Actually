@@ -77,7 +77,8 @@ class CustomMenuState extends MusicBeatState {
 		'vam',
 		'yabo',
 		'jay',
-        'sil'
+        'sil',
+        'cierra'
 	];
 
     var beansOponents:Array<String> = [
@@ -98,6 +99,10 @@ class CustomMenuState extends MusicBeatState {
 
     var silOponents:Array<String> = [
         'yabo'
+    ];
+
+    var cierraOponents:Array<String> = [
+        'jay'
     ];
 
     var avaliableOponents:Array<String> = [];
@@ -254,6 +259,10 @@ class CustomMenuState extends MusicBeatState {
                     for (oponent in silOponents) {
                         avaliableOponents.push(oponent);
                     }
+                case 'cierra':
+                    for (oponent in cierraOponents) {
+                        avaliableOponents.push(oponent);
+                    }
                 default:
                     avaliableOponents = [];
             }
@@ -406,6 +415,11 @@ class CustomMenuState extends MusicBeatState {
                 }
             }
 
+            if (characters[playerIndex] == 'cierra') {
+                if (characters[oponentIndex] == 'jay') {
+                    enterSong("kero");
+                }
+            }
 
             playerFlag = false;
             oponentFlag = false;
@@ -511,6 +525,8 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.BLUE;
             case 'sil':
                 color = FlxColor.PINK;
+            case 'cierra':
+                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
@@ -538,6 +554,8 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.BLUE;
             case 'sil':
                 color = FlxColor.PINK;
+            case 'cierra':
+                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
@@ -628,6 +646,8 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.BLUE;
             case 'sil':
                 color = FlxColor.PINK;
+            case 'cierra':
+                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
