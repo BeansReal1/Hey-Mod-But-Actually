@@ -1,6 +1,6 @@
 {
-	"name": "Test Songs",
-	"description": "its test songs what the fuck do you want me to say",
+	"name": "Hey Mod assets in the mod folder",
+	"description": "hey!",
 	"restart":false,
 	"runsGlobally": false,
 	"color": [170, 0, 255],
