@@ -142,6 +142,16 @@ class MainMenuState extends MusicBeatState
 		cityFrontAndReflection.y = 678;
         add(cityFrontAndReflection);
 
+		menuItems = new FlxTypedGroup<FlxSprite>();
+		add(menuItems);
+
+		heyLogo = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/heyLogo'));
+        heyLogo.scale.set(0.80, 0.80);
+		heyLogo.scrollFactor.set(0, yScroll);
+        heyLogo.screenCenter();
+		heyLogo.y = 195;
+        add(heyLogo);
+
 		// ok screen stuff over time for the rest of the bg eto bleeehhh
 
 		var arcadeMachine:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/arcadeMachine'));
@@ -190,16 +200,6 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-
-		menuItems = new FlxTypedGroup<FlxSprite>();
-		add(menuItems);
-
-		heyLogo = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/heyLogo'));
-        heyLogo.scale.set(0.80, 0.80);
-		heyLogo.scrollFactor.set(0, yScroll);
-        heyLogo.screenCenter();
-		heyLogo.y = 195;
-        add(heyLogo);
 
 		for (num => option in optionShit)
 		{
