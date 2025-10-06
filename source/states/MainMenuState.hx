@@ -44,6 +44,9 @@ class MainMenuState extends MusicBeatState
 
 	//Centered/Text options
 	var optionShit:Array<String> = [
+
+		// later switch custom to play and options to settings because thats what the files are called or you can just change the file name to custom and options instead
+
 		'custom',
 		'freeplay',
 		'options',
