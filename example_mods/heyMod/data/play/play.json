@@ -1,7 +1,7 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "bf",
+		"player1": "silDoc",
 		"events": [
 			[
 				7500,
@@ -95,7 +95,7 @@
 			]
 		],
 		"gfVersion": "gf",
-		"player2": "bf",
+		"player2": "yaboDoc",
 		"notes": [
 			{
 				"sectionBeats": 4,
@@ -3596,7 +3596,7 @@
 		],
 		"player3": null,
 		"song": "play",
-		"stage": "canvas",
+		"stage": "docRoom",
 		"validScore": true,
 		"sections": 0,
 		"needsVoices": true,
