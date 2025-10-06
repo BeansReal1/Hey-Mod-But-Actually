@@ -1,7 +1,7 @@
 {
 	"name": "Hey Mod assets in the mod folder",
 	"description": "hey!",
-	"restart":false,
+	"restart":true,
 	"runsGlobally": false,
 	"color": [170, 0, 255]
 }
