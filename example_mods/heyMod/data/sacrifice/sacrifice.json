@@ -1,7 +1,7 @@
 {
 	"song": {
-		"player1": "bf",
-		"player2": "bf",
+		"player1": "mascot",
+		"player2": "fatass",
 		"notes": [
 			{
 				"lengthInSteps": 16,
@@ -10131,7 +10131,7 @@
 		"song": "sacrifice",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "stage",
+		"stage": "gamingRoom",
 		"speed": 3.3,
 		"bpm": 190
 	}
