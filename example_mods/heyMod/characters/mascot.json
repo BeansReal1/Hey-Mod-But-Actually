@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-5,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "mascot idle"
+		},
+		{
+			"offsets": [
+				1,
+				-1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "mascot left"
+		},
+		{
+			"offsets": [
+				0,
+				-15
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "mascot down"
+		},
+		{
+			"offsets": [
+				-15,
+				20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "mascot up"
+		},
+		{
+			"offsets": [
+				-13,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "mascot right"
+		},
+		{
+			"offsets": [
+				25,
+				27
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "mascot miss left"
+		},
+		{
+			"offsets": [
+				17,
+				-5
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "mascot miss down"
+		},
+		{
+			"offsets": [
+				-12,
+				45
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "mascot miss up"
+		},
+		{
+			"offsets": [
+				-14,
+				2
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "mascot miss right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/mascot",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		370,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

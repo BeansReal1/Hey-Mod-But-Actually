@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tvGlow.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tvGlow0000" x="10" y="10" width="665" height="706"/>
+	<SubTexture name="tvGlow0001" x="10" y="10" width="665" height="706"/>
+	<SubTexture name="tvGlow0002" x="685" y="10" width="665" height="676" frameX="0" frameY="-15" frameWidth="665" frameHeight="706"/>
+	<SubTexture name="tvGlow0003" x="685" y="10" width="665" height="676" frameX="0" frameY="-15" frameWidth="665" frameHeight="706"/>
+</TextureAtlas>

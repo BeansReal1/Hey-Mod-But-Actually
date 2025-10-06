@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				99,
+				-10
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "yabo left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				13,
+				-39
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "yabo down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				38,
+				60
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "yabo up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				90,
+				6
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "yabo right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "yabo idle",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/yaboDoc",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "dad",
+	"flip_x": false,
+	"healthbar_colors": [
+		175,
+		102,
+		206
+	],
+	"camera_position": [
+		-530,
+		-100
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

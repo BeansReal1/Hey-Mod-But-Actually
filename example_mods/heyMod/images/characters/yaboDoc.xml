@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="yaboDoc.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="yabo down0000" x="10" y="10" width="386" height="908" frameX="0" frameY="-13" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0001" x="10" y="10" width="386" height="908" frameX="0" frameY="-13" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0002" x="406" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0003" x="406" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0004" x="794" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0005" x="794" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0006" x="1182" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0007" x="1182" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo down0008" x="1182" y="10" width="378" height="921" frameX="-4" frameY="0" frameWidth="386" frameHeight="921"/>
+	<SubTexture name="yabo idle0000" x="1570" y="10" width="374" height="944" frameX="0" frameY="-9" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0001" x="1954" y="10" width="374" height="944" frameX="0" frameY="-9" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0002" x="2338" y="10" width="370" height="949" frameX="-2" frameY="-4" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0003" x="2338" y="10" width="370" height="949" frameX="-2" frameY="-4" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0004" x="2718" y="10" width="364" height="951" frameX="-5" frameY="-2" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0005" x="2718" y="10" width="364" height="951" frameX="-5" frameY="-2" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0006" x="3092" y="10" width="363" height="952" frameX="-6" frameY="-1" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0007" x="3092" y="10" width="363" height="952" frameX="-6" frameY="-1" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0008" x="3465" y="10" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0009" x="3465" y="10" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0010" x="10" y="973" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0011" x="10" y="973" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0012" x="10" y="973" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo idle0013" x="10" y="973" width="363" height="953" frameX="-6" frameY="0" frameWidth="374" frameHeight="953"/>
+	<SubTexture name="yabo left0000" x="383" y="973" width="456" height="927" frameX="0" frameY="-14" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0001" x="383" y="973" width="456" height="927" frameX="0" frameY="-14" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0002" x="849" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0003" x="849" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0004" x="1305" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0005" x="1305" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0006" x="1761" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0007" x="1761" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo left0008" x="1761" y="973" width="446" height="941" frameX="-12" frameY="0" frameWidth="458" frameHeight="941"/>
+	<SubTexture name="yabo right0000" x="2217" y="973" width="505" height="960" frameX="-7" frameY="-9" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0001" x="2217" y="973" width="505" height="960" frameX="-7" frameY="-9" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0002" x="2732" y="973" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0003" x="2732" y="973" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0004" x="3240" y="973" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0005" x="3240" y="973" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0006" x="10" y="1952" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0007" x="10" y="1952" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo right0008" x="10" y="1952" width="498" height="969" frameX="0" frameY="0" frameWidth="512" frameHeight="969"/>
+	<SubTexture name="yabo up0000" x="518" y="1952" width="460" height="1017" frameX="0" frameY="0" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0001" x="518" y="1952" width="460" height="1017" frameX="0" frameY="0" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0002" x="988" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0003" x="988" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0004" x="1471" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0005" x="1471" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0006" x="1954" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0007" x="1954" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+	<SubTexture name="yabo up0008" x="1954" y="1952" width="473" height="1007" frameX="-10" frameY="-10" frameWidth="483" frameHeight="1017"/>
+</TextureAtlas>

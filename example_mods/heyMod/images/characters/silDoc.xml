@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="silDoc.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="sil down0000" x="10" y="10" width="819" height="886" frameX="0" frameY="0" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0001" x="10" y="10" width="819" height="886" frameX="0" frameY="0" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0002" x="839" y="10" width="812" height="885" frameX="-11" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0003" x="839" y="10" width="812" height="885" frameX="-11" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0004" x="1661" y="10" width="810" height="885" frameX="-13" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0005" x="1661" y="10" width="810" height="885" frameX="-13" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0006" x="1661" y="10" width="810" height="885" frameX="-13" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0007" x="2481" y="10" width="821" height="885" frameX="-2" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0008" x="2481" y="10" width="821" height="885" frameX="-2" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0009" x="2481" y="10" width="821" height="885" frameX="-2" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0010" x="3312" y="10" width="819" height="885" frameX="-4" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0011" x="3312" y="10" width="819" height="885" frameX="-4" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0012" x="3312" y="10" width="819" height="885" frameX="-4" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil down0013" x="3312" y="10" width="819" height="885" frameX="-4" frameY="-1" frameWidth="823" frameHeight="886"/>
+	<SubTexture name="sil idle0000" x="4141" y="10" width="747" height="771" frameX="-4" frameY="-17" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0001" x="4141" y="10" width="747" height="771" frameX="-4" frameY="-17" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0002" x="4898" y="10" width="737" height="771" frameX="-8" frameY="-17" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0003" x="4898" y="10" width="737" height="771" frameX="-8" frameY="-17" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0004" x="5645" y="10" width="744" height="783" frameX="-10" frameY="-5" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0005" x="5645" y="10" width="744" height="783" frameX="-10" frameY="-5" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0006" x="6399" y="10" width="747" height="786" frameX="-10" frameY="-2" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0007" x="7156" y="10" width="757" height="786" frameX="0" frameY="-2" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0008" x="10" y="906" width="758" height="788"/>
+	<SubTexture name="sil idle0009" x="10" y="906" width="758" height="788"/>
+	<SubTexture name="sil idle0010" x="778" y="906" width="756" height="788" frameX="-2" frameY="0" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0011" x="778" y="906" width="756" height="788" frameX="-2" frameY="0" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0012" x="778" y="906" width="756" height="788" frameX="-2" frameY="0" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil idle0013" x="778" y="906" width="756" height="788" frameX="-2" frameY="0" frameWidth="758" frameHeight="788"/>
+	<SubTexture name="sil left0000" x="1544" y="906" width="697" height="832" frameX="0" frameY="-1" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0001" x="1544" y="906" width="697" height="832" frameX="0" frameY="-1" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0002" x="2251" y="906" width="717" height="833" frameX="-14" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0003" x="2251" y="906" width="717" height="833" frameX="-14" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0004" x="2978" y="906" width="713" height="833" frameX="-18" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0005" x="2978" y="906" width="713" height="833" frameX="-18" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0006" x="3701" y="906" width="713" height="833" frameX="-18" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0007" x="4424" y="906" width="726" height="833" frameX="-5" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0008" x="4424" y="906" width="726" height="833" frameX="-5" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0009" x="4424" y="906" width="726" height="833" frameX="-5" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0010" x="5160" y="906" width="724" height="833" frameX="-7" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0011" x="5160" y="906" width="724" height="833" frameX="-7" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0012" x="5160" y="906" width="724" height="833" frameX="-7" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil left0013" x="5160" y="906" width="724" height="833" frameX="-7" frameY="0" frameWidth="731" frameHeight="833"/>
+	<SubTexture name="sil right0000" x="5894" y="906" width="786" height="809" frameX="0" frameY="-27" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0001" x="5894" y="906" width="786" height="809" frameX="0" frameY="-27" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0002" x="6690" y="906" width="759" height="836" frameX="-14" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0003" x="6690" y="906" width="759" height="836" frameX="-14" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0004" x="10" y="1752" width="760" height="836" frameX="-13" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0005" x="10" y="1752" width="760" height="836" frameX="-13" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0006" x="10" y="1752" width="760" height="836" frameX="-13" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0007" x="780" y="1752" width="768" height="836" frameX="-5" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0008" x="780" y="1752" width="768" height="836" frameX="-5" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0009" x="780" y="1752" width="768" height="836" frameX="-5" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0010" x="1558" y="1752" width="766" height="836" frameX="-7" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0011" x="1558" y="1752" width="766" height="836" frameX="-7" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0012" x="1558" y="1752" width="766" height="836" frameX="-7" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil right0013" x="1558" y="1752" width="766" height="836" frameX="-7" frameY="0" frameWidth="786" frameHeight="836"/>
+	<SubTexture name="sil up0000" x="2334" y="1752" width="701" height="899" frameX="-4" frameY="0" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0001" x="2334" y="1752" width="701" height="899" frameX="-4" frameY="0" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0002" x="3045" y="1752" width="699" height="883" frameX="-9" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0003" x="3045" y="1752" width="699" height="883" frameX="-9" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0004" x="3754" y="1752" width="695" height="883" frameX="-13" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0005" x="3754" y="1752" width="695" height="883" frameX="-13" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0006" x="4459" y="1752" width="695" height="883" frameX="-13" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0007" x="5164" y="1752" width="708" height="883" frameX="0" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0008" x="5164" y="1752" width="708" height="883" frameX="0" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0009" x="5164" y="1752" width="708" height="883" frameX="0" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0010" x="5882" y="1752" width="706" height="883" frameX="-2" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0011" x="5882" y="1752" width="706" height="883" frameX="-2" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0012" x="5882" y="1752" width="706" height="883" frameX="-2" frameY="-16" frameWidth="708" frameHeight="899"/>
+	<SubTexture name="sil up0013" x="5882" y="1752" width="706" height="883" frameX="-2" frameY="-16" frameWidth="708" frameHeight="899"/>
+</TextureAtlas>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="fatass.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="fatass down0000" x="10" y="10" width="250" height="332" frameX="0" frameY="-6" frameWidth="250" frameHeight="341"/>
+	<SubTexture name="fatass down0001" x="10" y="10" width="250" height="332" frameX="0" frameY="-6" frameWidth="250" frameHeight="341"/>
+	<SubTexture name="fatass down0002" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0003" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0004" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0005" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0006" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0007" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0008" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass down0009" x="270" y="10" width="250" height="341"/>
+	<SubTexture name="fatass idle0000" x="530" y="10" width="258" height="347" frameX="0" frameY="-5" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0001" x="530" y="10" width="258" height="347" frameX="0" frameY="-5" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0002" x="798" y="10" width="253" height="349" frameX="-2" frameY="-4" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0003" x="798" y="10" width="253" height="349" frameX="-2" frameY="-4" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0004" x="1061" y="10" width="251" height="352" frameX="-3" frameY="-1" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0005" x="1061" y="10" width="251" height="352" frameX="-3" frameY="-1" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0006" x="1322" y="10" width="250" height="354" frameX="-3" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0007" x="1322" y="10" width="250" height="354" frameX="-3" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0008" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0009" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0010" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0011" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0012" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass idle0013" x="1582" y="10" width="249" height="354" frameX="-4" frameY="0" frameWidth="258" frameHeight="354"/>
+	<SubTexture name="fatass left0000" x="10" y="374" width="257" height="358" frameX="0" frameY="-2" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0001" x="10" y="374" width="257" height="358" frameX="0" frameY="-2" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0002" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0003" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0004" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0005" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0006" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0007" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0008" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass left0009" x="277" y="374" width="253" height="355" frameX="-7" frameY="0" frameWidth="260" frameHeight="360"/>
+	<SubTexture name="fatass right0000" x="540" y="374" width="250" height="354" frameX="0" frameY="0" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0001" x="540" y="374" width="250" height="354" frameX="0" frameY="0" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0002" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0003" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0004" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0005" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0006" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0007" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0008" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass right0009" x="800" y="374" width="248" height="354" frameX="0" frameY="-1" frameWidth="250" frameHeight="355"/>
+	<SubTexture name="fatass up0000" x="1058" y="374" width="242" height="380" frameX="-10" frameY="0" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0001" x="1058" y="374" width="242" height="380" frameX="-10" frameY="0" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0002" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0003" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0004" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0005" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0006" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0007" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0008" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+	<SubTexture name="fatass up0009" x="1310" y="374" width="248" height="369" frameX="0" frameY="-7" frameWidth="252" frameHeight="380"/>
+</TextureAtlas>

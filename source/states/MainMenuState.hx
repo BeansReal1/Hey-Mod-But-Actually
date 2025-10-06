@@ -37,6 +37,7 @@ class MainMenuState extends MusicBeatState
 	var halftoneBlue:FlxTiledSprite;
 	var cityBack:FlxTiledSprite;
 	var cityMid:FlxTiledSprite;
+	var water:FlxSprite;
 	var cityFrontAndReflection:FlxTiledSprite;
 
 	var cameraZoom:Float = 1.5;
@@ -52,6 +53,8 @@ class MainMenuState extends MusicBeatState
 
 	var leftOption:String = #if ACHIEVEMENTS_ALLOWED 'achievements' #else null #end;
 	var rightOption:String = 'options';
+
+	var heyLogo:FlxSprite;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
@@ -101,16 +104,16 @@ class MainMenuState extends MusicBeatState
 		halftoneBlue.scale.set(0.80, 0.80);
 		halftoneBlue.scrollFactor.set(0, yScroll);
         halftoneBlue.screenCenter();
-		halftoneBlue.x = 400;
-		halftoneBlue.y = 200;
         add(halftoneBlue);
+
+		// where the fuck is the halftone bruh why don't i see it when i compile the build what fuckin ever
 
 		cityBack = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityBack'), 475, 200, true, false);
 		cityBack.scale.set(0.80, 0.80);
 		cityBack.scrollFactor.set(0, yScroll);
         cityBack.screenCenter();
 		cityBack.x = 400;
-		cityBack.y = 200;
+		cityBack.y = 700;
         add(cityBack);
 
 		cityMid = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityMid'), 475, 200, true, false);
@@ -118,15 +121,15 @@ class MainMenuState extends MusicBeatState
 		cityMid.scrollFactor.set(0, yScroll);
         cityMid.screenCenter();
 		cityMid.x = 400;
-		cityMid.y = 200;
+		cityMid.y = 700;
         add(cityMid);
 
-		var water = new FlxSprite();
+		water = new FlxSprite(-80);
 		water.makeGraphic(510, 200, FlxColor.fromString("0xABAFC2"));
         water.scale.set(0.80, 0.80);
 		water.scrollFactor.set(0, yScroll);
         water.screenCenter();
-		water.y = 380;
+		water.y = 880;
         add(water);
 
 		cityFrontAndReflection = new FlxTiledSprite(Paths.image('arcadeMenu/arcadeScreen/cityFrontAndReflection'), 475, 625, true, false);
@@ -134,7 +137,7 @@ class MainMenuState extends MusicBeatState
 		cityFrontAndReflection.scrollFactor.set(0, yScroll);
         cityFrontAndReflection.screenCenter();
 		cityFrontAndReflection.x = 400;
-		cityFrontAndReflection.y = 178;
+		cityFrontAndReflection.y = 678;
         add(cityFrontAndReflection);
 
 		// ok screen stuff over time for the rest of the bg eto bleeehhh
@@ -188,6 +191,13 @@ class MainMenuState extends MusicBeatState
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
+
+		heyLogo = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/heyLogo'));
+        heyLogo.scale.set(0.80, 0.80);
+		heyLogo.scrollFactor.set(0, yScroll);
+        heyLogo.screenCenter();
+		heyLogo.y = 195;
+        add(heyLogo);
 
 		for (num => option in optionShit)
 		{
@@ -284,18 +294,51 @@ class MainMenuState extends MusicBeatState
 		inTitle = true;
 	}
 
+	function logoShit(t: FlxTween):Void {
+		FlxTween.tween(heyLogo.scale, {x:0.5, y:0.5}, 0.5, {ease: FlxEase.quartOut} );
+		FlxTween.tween(heyLogo, { x: heyLogo.x, y: 125 }, {ease: FlxEase.quartOut});
+	}
+
+	function logoShit2(t: FlxTween):Void {
+		FlxTween.tween(heyLogo.scale, {x:0.8, y:0.8}, 0.5, {ease: FlxEase.quartOut} );
+		FlxTween.tween(heyLogo, { x: heyLogo.x, y: heyLogo.y }, {ease: FlxEase.quartOut});
+	}
+
 	function titleChecks() {
 		var cameraTweenDuration:Float = 1;
 		if (controls.ACCEPT && inTitle) {
 			FlxTween.tween(FlxG.camera, {zoom: cameraZoom}, cameraTweenDuration, {ease: FlxEase.quartOut});
 			arcadeButtons.animation.play('start');
+			
 			haxe.Timer.delay(() -> initMenu(), 100);
+
+			// screen bullshit
+
+			FlxTween.tween(heyLogo.scale, {x:0.55, y:0.55}, 0.5, {ease: FlxEase.quartIn} );
+			FlxTween.tween(heyLogo, { x: heyLogo.x, y: heyLogo.y }, 0.5,{ease: FlxEase.quartIn, onComplete: logoShit});
+
+			FlxTween.tween(halftoneBlue, { x: 400, y: 400 }, {ease: FlxEase.quartOut});
+			FlxTween.tween(cityBack, { x: 400, y: 200 }, {ease: FlxEase.quartOut});
+			FlxTween.tween(cityMid, { x: 400, y: 200 }, {ease: FlxEase.quartOut});
+			FlxTween.tween(water, { x: water.x, y: 380 }, {ease: FlxEase.quartOut});
+			FlxTween.tween(cityFrontAndReflection, { x: 400, y: 178 }, {ease: FlxEase.quartOut});
+
 		}
 
 		if (controls.BACK && !inTitle) {
 			FlxTween.tween(FlxG.camera, {zoom: 1}, cameraTweenDuration, {ease: FlxEase.quartOut});
 			arcadeButtons.animation.play('back');
 			haxe.Timer.delay(() -> unInitMenu(), 100);
+
+			// screen bullshit
+			FlxTween.tween(heyLogo.scale, {x:0.55, y:0.55}, 0.5, {ease: FlxEase.quartIn} );
+			FlxTween.tween(heyLogo, { x: heyLogo.x, y:  195 }, 0.5, {ease: FlxEase.quartIn, onComplete: logoShit2});
+
+			FlxTween.tween(halftoneBlue, { x: 400, y: 900 }, {ease: FlxEase.quartIn});
+			FlxTween.tween(cityBack, { x: 400, y: 700 }, {ease: FlxEase.quartIn});
+			FlxTween.tween(cityMid, { x: 400, y: 700 }, {ease: FlxEase.quartIn});
+			FlxTween.tween(water, { x: water.x, y: 880 }, {ease: FlxEase.quartIn});
+			FlxTween.tween(cityFrontAndReflection, { x: 400, y: 678 }, {ease: FlxEase.quartIn});
 
 		}
 
