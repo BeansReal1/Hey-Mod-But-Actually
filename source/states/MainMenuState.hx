@@ -59,6 +59,8 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
+	var itemPos:Array<Array<Int>> = [];
+
 	static var showOutdatedWarning:Bool = true;
 	override function create()
 	{
@@ -201,7 +203,15 @@ class MainMenuState extends MusicBeatState
 
 		for (num => option in optionShit)
 		{
-			var item:FlxSprite = createMenuItem(option, 0, (num * 60)+ 250);
+			var separation:Int = 60;
+			var verticalOffset:Int = 250;
+			var itemx = 0;
+			var itemy = (num * separation) + verticalOffset; 
+			var pos:Array<Int> = [];
+			pos.push(itemx);
+			pos.push(itemy); // this is a surprise tool that will help us later (tweens)
+			itemPos.push(pos);
+			var item:FlxSprite = createMenuItem(option, itemx, itemy);
 
 			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
 			item.screenCenter(X);
@@ -249,7 +259,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.15);
 		var titleStart:Bool = true;
 		if (titleStart) {
-			menuVisibility(false);
+			sendMenuToHell();
 		} else {
 			initMenu();
 		}
@@ -272,15 +282,39 @@ class MainMenuState extends MusicBeatState
 		return menuItem;
 	}
 
+	function sendMenuToHell() {
+		for (item in menuItems) {
+			item.y = FlxG.height;
+		}
+	}
+
 	function menuVisibility(visibility:Bool) {
 		for (item in menuItems) {
 			item.visible = visibility;
 		}
 	}
 
+	function tweenMenu(init:Bool) {
+		var tweenDuration:Float = 0.5;
+		if (init) {
+			var i:Int = 0;
+			for (item in menuItems) {
+				FlxTween.tween(item, {x: item.x, y: itemPos[i][1]}, tweenDuration, {ease: FlxEase.quartOut});
+				i++;
+			}
+		} else {
+			var i:Int = 0;
+			for (item in menuItems) {
+				FlxTween.tween(item, {x: item.x, y: FlxG.height}, tweenDuration, {ease: FlxEase.quartIn});
+				i++;
+			}
+		}
+	}
+
 	function initMenu() {
 		
-		menuVisibility(true);
+		//menuVisibility(true);
+		tweenMenu(true); // we tweening shit now ok
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		arcadeButtons.animation.play('idle');
 		inTitle = false;
@@ -288,7 +322,8 @@ class MainMenuState extends MusicBeatState
 
 	function unInitMenu() {
 		
-		menuVisibility(false);
+		//menuVisibility(false);
+		tweenMenu(false); 
 		FlxG.sound.play(Paths.sound('cancelMenu'));
 		arcadeButtons.animation.play('idle');
 		inTitle = true;
