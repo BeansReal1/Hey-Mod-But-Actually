@@ -113,6 +113,11 @@ class CustomMenuState extends MusicBeatState {
 
         super.create();
 
+		#if DISCORD_ALLOWED
+		// Updating Discord Rich Presence
+		DiscordClient.changePresence("Selecting A Fighter", null);
+		#end
+
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/background'));
         bg.screenCenter();
         bg.scale.set(0.70, 0.70);
