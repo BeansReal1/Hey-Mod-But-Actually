@@ -48,7 +48,7 @@ class MainMenuState extends MusicBeatState
 		// later switch custom to play and options to settings because thats what the files are called or you can just change the file name to custom and options instead
 
 		'custom',
-		'freeplay',
+		// 'freeplay',
 		'options',
 		#if MODS_ALLOWED 'mods', #end
 		'credits'
