@@ -230,6 +230,14 @@ class CustomMenuState extends MusicBeatState {
         positionRender();
         myText.y += 10 * elapsed;
 
+        if (playerFlag && !oponentFlag) {
+            // Updating Discord Rich Presence
+		    DiscordClient.changePresence("Selecting an Opponent", null);
+        }
+        else if (!playerFlag) {
+            // Updating Discord Rich Presence
+		    DiscordClient.changePresence("Selecting a Fighter", null);
+        }
     }
 
     function createHugeFuckingSquare() {
@@ -532,7 +540,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
@@ -561,7 +569,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
@@ -653,7 +661,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
