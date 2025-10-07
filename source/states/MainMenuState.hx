@@ -351,7 +351,7 @@ class MainMenuState extends MusicBeatState
 		barVisibility(true);
 		selectBar.y = curY - barOffset;
 		selectBar.animation.play('select');
-		haxe.Timer.delay(() -> barAnim(), 100);
+		haxe.Timer.delay(() -> barAnim(), 30);
 		
 	}
 
