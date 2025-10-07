@@ -407,7 +407,7 @@ class CustomMenuState extends MusicBeatState {
 
             if (characters[playerIndex] == 'vam') {
                 if (characters[oponentIndex] == 'beans') {
-                    enterSong("say-my-name");
+                    enterSong("kevinteenbucks");
                 }
             }
 
