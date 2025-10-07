@@ -67,6 +67,7 @@ class MainMenuState extends MusicBeatState
 	var itemPos:Array<Array<Int>> = [];
 
 	var yScroll:Float = 0.05;
+	var curY:Float;
 
 	static var showOutdatedWarning:Bool = true;
 	override function create()
@@ -154,6 +155,8 @@ class MainMenuState extends MusicBeatState
 		selectBar.scrollFactor.set(0, yScroll);
 		selectBar.animation.addByPrefix('idle', 'selectBar idle', 24, true);
 		selectBar.animation.addByPrefix('select', 'selectBar enter', 24, true);
+		//selectBar.animation.onFinish.add(barAnim);
+
         selectBar.screenCenter();
 		selectBar.animation.play('idle');
         add(selectBar);
@@ -277,9 +280,12 @@ class MainMenuState extends MusicBeatState
 		var titleStart:Bool = true;
 		if (titleStart) {
 			sendMenuToHell();
+			barVisibility(false);
 		} else {
 			initMenu();
 		}
+		curY = itemPos[0][1];
+		//changeItem(0, false);
 	}
 
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
@@ -329,19 +335,55 @@ class MainMenuState extends MusicBeatState
 		}
 	}
 
+	function barMovement(selectedItem:FlxSprite) {
+		var tweenDuration:Float = 0.2;
+		var offset:Float = 5;
+		FlxTween.tween(selectBar, {x: selectBar.x, y: selectedItem.y - offset}, tweenDuration, {ease: FlxEase.quintInOut});
+	}
+
+	function barAnim() {
+		selectBar.animation.play("idle");
+	}
+
+	function barAnimSelect() {
+		var barOffset:Float = 5;
+
+		barVisibility(true);
+		selectBar.y = curY - barOffset;
+		selectBar.animation.play('select');
+		haxe.Timer.delay(() -> barAnim(), 100);
+		
+	}
+
+	function barVisibility(v:Bool) {
+		selectBar.visible = v;
+	}
+
+
+
+
+
 	function initMenu() {
+		
 		
 		//menuVisibility(true);
 		tweenMenu(true); // we tweening shit now ok
+		
+		selectBar.animation.play('select');
+		
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		arcadeButtons.animation.play('idle');
 		inTitle = false;
+		haxe.Timer.delay(() -> barAnimSelect(), 400);
+		
+		
 	}
 
 	function unInitMenu() {
 		
 		//menuVisibility(false);
 		tweenMenu(false); 
+		barVisibility(false);
 		FlxG.sound.play(Paths.sound('cancelMenu'));
 		arcadeButtons.animation.play('idle');
 		inTitle = true;
@@ -362,7 +404,7 @@ class MainMenuState extends MusicBeatState
 		if (controls.ACCEPT && inTitle) {
 			FlxTween.tween(FlxG.camera, {zoom: cameraZoom}, cameraTweenDuration, {ease: FlxEase.quartOut});
 			arcadeButtons.animation.play('start');
-			
+
 			haxe.Timer.delay(() -> initMenu(), 100);
 
 			// screen bullshit
@@ -435,9 +477,12 @@ class MainMenuState extends MusicBeatState
 		cityMid.scrollX -= 40 * elapsed;
 		cityFrontAndReflection.scrollX -= 100 * elapsed;
 
+
+
 		titleChecks();
 		arcadeStickAnims();
 		arcadeStickOffsets();
+
 		if (FlxG.sound.music.volume < 0.8)
 			FlxG.sound.music.volume = Math.min(FlxG.sound.music.volume + 0.5 * elapsed, 0.8);
 
@@ -648,11 +693,14 @@ class MainMenuState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function changeItem(change:Int = 0)
+	function changeItem(change:Int = 0, playNoise:Bool = true)
 	{
 		if(change != 0) curColumn = CENTER;
 		curSelected = FlxMath.wrap(curSelected + change, 0, optionShit.length - 1);
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (playNoise) {
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+		}
+		
 
 		for (item in menuItems)
 		{
@@ -671,6 +719,8 @@ class MainMenuState extends MusicBeatState
 				selectedItem = rightItem;
 		}
 		selectedItem.animation.play('selected');
+		curY = selectedItem.y;
+		barMovement(selectedItem);
 		selectedItem.centerOffsets();
 		camFollow.y = selectedItem.getGraphicMidpoint().y;
 	}
