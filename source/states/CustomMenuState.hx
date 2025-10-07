@@ -532,7 +532,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
@@ -561,7 +561,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
@@ -653,7 +653,7 @@ class CustomMenuState extends MusicBeatState {
             case 'sil':
                 color = FlxColor.PINK;
             case 'cierra':
-                color = FlxColor.CYAN;
+                color = FlxColor.ORANGE;
             default:
                 color = FlxColor.WHITE;
         }
