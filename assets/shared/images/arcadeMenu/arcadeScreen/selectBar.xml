@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="selectBar.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="selectBar enter0000" x="10" y="10" width="575" height="6" frameX="0" frameY="-14" frameWidth="575" frameHeight="34"/>
+	<SubTexture name="selectBar enter0001" x="10" y="26" width="575" height="28" frameX="0" frameY="-3" frameWidth="575" frameHeight="34"/>
+	<SubTexture name="selectBar enter0002" x="10" y="64" width="575" height="31" frameX="0" frameY="-1" frameWidth="575" frameHeight="34"/>
+	<SubTexture name="selectBar enter0003" x="10" y="105" width="575" height="33" frameX="0" frameY="0" frameWidth="575" frameHeight="34"/>
+	<SubTexture name="selectBar enter0004" x="10" y="148" width="575" height="34"/>
+	<SubTexture name="selectBar enter0005" x="10" y="192" width="575" height="34"/>
+	<SubTexture name="selectBar idle0000" x="10" y="192" width="575" height="34"/>
+</TextureAtlas>

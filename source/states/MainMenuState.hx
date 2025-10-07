@@ -22,8 +22,10 @@ class MainMenuState extends MusicBeatState
 	public static var psychEngineVersion:String = '1.0.4'; // This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
-	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
+	var allowMouse:Bool = false; //Turn this off to block mouse movement in menus
 	var inTitle:Bool = true;
+
+	var selectBar:FlxSprite;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var leftItem:FlxSprite;
@@ -50,7 +52,7 @@ class MainMenuState extends MusicBeatState
 		'custom',
 		// 'freeplay',
 		'options',
-		#if MODS_ALLOWED 'mods', #end
+		// #if MODS_ALLOWED 'mods', #end
 		'credits'
 	];
 
@@ -63,6 +65,8 @@ class MainMenuState extends MusicBeatState
 	var camFollow:FlxObject;
 
 	var itemPos:Array<Array<Int>> = [];
+
+	var yScroll:Float = 0.05;
 
 	static var showOutdatedWarning:Bool = true;
 	override function create()
@@ -86,7 +90,6 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = 0.05;
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg_arcade'));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set(0, yScroll);
@@ -144,6 +147,16 @@ class MainMenuState extends MusicBeatState
 		cityFrontAndReflection.x = 400;
 		cityFrontAndReflection.y = 678;
         add(cityFrontAndReflection);
+
+		selectBar = new FlxSprite(-80);
+        selectBar.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeScreen/selectBar');
+        selectBar.scale.set(0.80, 0.80);
+		selectBar.scrollFactor.set(0, yScroll);
+		selectBar.animation.addByPrefix('idle', 'selectBar idle', 24, true);
+		selectBar.animation.addByPrefix('select', 'selectBar enter', 24, true);
+        selectBar.screenCenter();
+		selectBar.animation.play('idle');
+        add(selectBar);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -206,8 +219,8 @@ class MainMenuState extends MusicBeatState
 
 		for (num => option in optionShit)
 		{
-			var separation:Int = 60;
-			var verticalOffset:Int = 250;
+			var separation:Int = 30;
+			var verticalOffset:Int = 325;
 			var itemx = 0;
 			var itemy = (num * separation) + verticalOffset; 
 			var pos:Array<Int> = [];
@@ -215,6 +228,7 @@ class MainMenuState extends MusicBeatState
 			pos.push(itemy); // this is a surprise tool that will help us later (tweens)
 			itemPos.push(pos);
 			var item:FlxSprite = createMenuItem(option, itemx, itemy);
+			item.scrollFactor.set(0, yScroll);
 
 			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
 			item.screenCenter(X);
@@ -271,11 +285,11 @@ class MainMenuState extends MusicBeatState
 	function createMenuItem(name:String, x:Float, y:Float):FlxSprite
 	{
 		var menuItem:FlxSprite = new FlxSprite(x, y);
-		menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_$name');
+		menuItem.frames = Paths.getSparrowAtlas('arcadeMenu/arcadeScreen/menu_$name');
 		menuItem.animation.addByPrefix('idle', '$name idle', 24, true);
 		menuItem.animation.addByPrefix('selected', '$name selected', 24, true);
 		menuItem.animation.play('idle');
-		menuItem.scale.set(0.5, 0.5);
+		menuItem.scale.set(0.8, 0.8);
 		menuItem.updateHitbox();
 		menuItem.updateHitbox();
 		
@@ -334,7 +348,7 @@ class MainMenuState extends MusicBeatState
 	}
 
 	function logoShit(t: FlxTween):Void {
-		FlxTween.tween(heyLogo.scale, {x:0.5, y:0.5}, 0.5, {ease: FlxEase.quartOut} );
+		FlxTween.tween(heyLogo.scale, {x:0.55, y:0.55}, 0.5, {ease: FlxEase.quartOut} );
 		FlxTween.tween(heyLogo, { x: heyLogo.x, y: 125 }, {ease: FlxEase.quartOut});
 	}
 
@@ -353,7 +367,7 @@ class MainMenuState extends MusicBeatState
 
 			// screen bullshit
 
-			FlxTween.tween(heyLogo.scale, {x:0.55, y:0.55}, 0.5, {ease: FlxEase.quartIn} );
+			FlxTween.tween(heyLogo.scale, {x:0.6, y:0.6}, 0.5, {ease: FlxEase.quartIn} );
 			FlxTween.tween(heyLogo, { x: heyLogo.x, y: heyLogo.y }, 0.5,{ease: FlxEase.quartIn, onComplete: logoShit});
 
 			FlxTween.tween(halftoneBlue, { x: 400, y: 400 }, {ease: FlxEase.quartOut});
@@ -370,7 +384,7 @@ class MainMenuState extends MusicBeatState
 			haxe.Timer.delay(() -> unInitMenu(), 100);
 
 			// screen bullshit
-			FlxTween.tween(heyLogo.scale, {x:0.55, y:0.55}, 0.5, {ease: FlxEase.quartIn} );
+			FlxTween.tween(heyLogo.scale, {x:0.6, y:0.6}, 0.5, {ease: FlxEase.quartIn} );
 			FlxTween.tween(heyLogo, { x: heyLogo.x, y:  195 }, 0.5, {ease: FlxEase.quartIn, onComplete: logoShit2});
 
 			FlxTween.tween(halftoneBlue, { x: 400, y: 900 }, {ease: FlxEase.quartIn});
