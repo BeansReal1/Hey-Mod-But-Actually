@@ -374,7 +374,7 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		arcadeButtons.animation.play('idle');
 		inTitle = false;
-		haxe.Timer.delay(() -> barAnimSelect(), 400);
+		haxe.Timer.delay(() -> barAnimSelect(), 700);
 		
 		
 	}
