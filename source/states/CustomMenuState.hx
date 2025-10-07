@@ -230,6 +230,12 @@ class CustomMenuState extends MusicBeatState {
         positionRender();
         myText.y += 10 * elapsed;
 
+        if (playerFlag && !opponentFlag) {
+            // Updating Discord Rich Presence
+		    DiscordClient.changePresence("Selecting A Opponent", null);
+		    #end
+        }
+
     }
 
     function createHugeFuckingSquare() {
