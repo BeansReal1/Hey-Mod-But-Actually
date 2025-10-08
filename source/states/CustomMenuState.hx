@@ -78,8 +78,7 @@ class CustomMenuState extends MusicBeatState {
 		'yabo',
 		'jay',
         'sil',
-        'cierra',
-        'bf'
+        'cierra'
 	];
 
     var beansOponents:Array<String> = [
@@ -104,10 +103,6 @@ class CustomMenuState extends MusicBeatState {
 
     var cierraOponents:Array<String> = [
         'jay'
-    ];
-
-    var bfOponents:Array<String> = [
-        'yabo'
     ];
 
     var avaliableOponents:Array<String> = [];
@@ -281,10 +276,6 @@ class CustomMenuState extends MusicBeatState {
                     for (oponent in cierraOponents) {
                         avaliableOponents.push(oponent);
                     }
-                case 'bf':
-                    for (oponent in bfOponents) {
-                        availableOponents.push(oponent);
-                    }
                 default:
                     avaliableOponents = [];
             }
@@ -443,12 +434,6 @@ class CustomMenuState extends MusicBeatState {
                     enterSong("kero");
                 }
             }
-            
-            if (characters[playerIndex] == 'bf') {
-                if (characters[oponentIndex] == 'yabo') {
-                    enterSong("test");
-                }
-            }
 
             playerFlag = false;
             oponentFlag = false;
@@ -556,8 +541,6 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.PINK;
             case 'cierra':
                 color = FlxColor.ORANGE;
-            case 'bf':
-                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
@@ -587,8 +570,6 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.PINK;
             case 'cierra':
                 color = FlxColor.ORANGE;
-            case 'bf':
-                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
@@ -681,8 +662,6 @@ class CustomMenuState extends MusicBeatState {
                 color = FlxColor.PINK;
             case 'cierra':
                 color = FlxColor.ORANGE;
-            case 'bf':
-                color = FlxColor.CYAN;
             default:
                 color = FlxColor.WHITE;
         }
