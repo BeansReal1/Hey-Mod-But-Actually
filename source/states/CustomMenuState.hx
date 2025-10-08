@@ -108,7 +108,7 @@ class CustomMenuState extends MusicBeatState {
 
     var bfOponents:Array<String> = [
         'yabo'
-    ]
+    ];
 
     var avaliableOponents:Array<String> = [];
 
