@@ -78,7 +78,7 @@ class CustomMenuState extends MusicBeatState {
 		'yabo',
 		'jay',
         'sil',
-        'cierra'
+        'cierra',
         'bf'
 	];
 
