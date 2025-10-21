@@ -527,61 +527,69 @@ class CustomMenuState extends MusicBeatState {
     }
 
     private function createRenderPlayer(x:Float,y:Float,character:String) {
-        var color:FlxColor;
+        // var color:FlxColor;
+        var render:FlxSprite;
         switch(character) {
             case 'beans':
-                color = FlxColor.MAGENTA;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'vam':
-                color = FlxColor.PURPLE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'yabo':
-                color = FlxColor.RED;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'jay':
-                color = FlxColor.BLUE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'sil':
-                color = FlxColor.PINK;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'cierra':
-                color = FlxColor.ORANGE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             default:
-                color = FlxColor.WHITE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
         }
 
+        render.x = x - render.width;
+        render.y = y;
+		renderItemsPlayer.add(render);
 
-
-        var square:FlxSprite = new FlxSprite();
+/*         var square:FlxSprite = new FlxSprite();
         square.makeGraphic(200,200,color);
         square.x = x - square.width;
         square.y = y;
-        renderItemsPlayer.add(square);
+        renderItemsPlayer.add(square); */
 
     }
 
     private function createRenderOponent(x:Float,y:Float,character:String) {
-        var color:FlxColor;
+        //var color:FlxColor;
+        var render:FlxSprite;
         switch(character) {
             case 'beans':
-                color = FlxColor.MAGENTA;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'vam':
-                color = FlxColor.PURPLE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'yabo':
-                color = FlxColor.RED;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'jay':
-                color = FlxColor.BLUE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'sil':
-                color = FlxColor.PINK;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'cierra':
-                color = FlxColor.ORANGE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             default:
-                color = FlxColor.WHITE;
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
         }
 
-        
+        x = FlxG.width + render.width;
+        render.x = x;
+        render.y = y;
+        render.flipX = true;
+		renderItemsOponent.add(render); 
 
-        var square:FlxSprite = new FlxSprite();
+/*         var square:FlxSprite = new FlxSprite();
         square.makeGraphic(200,200,color);
         x = FlxG.width + square.width;
         square.x = x;
         square.y = y;
-        renderItemsOponent.add(square);
+        renderItemsOponent.add(square); */
 
     }
 
