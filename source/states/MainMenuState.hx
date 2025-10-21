@@ -99,6 +99,30 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
+		var wall:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/wall'));
+        wall.scale.set(0.80, 0.80);
+		wall.scrollFactor.set(0, yScroll);
+        wall.screenCenter();
+		wall.y = -120;
+        add(wall);
+
+		var floor:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/floor'));
+        floor.scale.set(0.80, 0.80);
+		floor.scrollFactor.set(0, yScroll);
+        floor.screenCenter();
+		floor.y = 525;
+        add(floor);
+
+		var bgMachines:FlxSprite  = new FlxSprite(-80);
+        bgMachines.frames = Paths.getSparrowAtlas('arcadeMenu/bgMachines');
+        bgMachines.scale.set(0.80, 0.80);
+		bgMachines.scrollFactor.set(0, yScroll);
+		bgMachines.animation.addByPrefix('idle', 'bgMachines', 24, true);
+        bgMachines.screenCenter();
+		bgMachines.y = 100;
+		bgMachines.animation.play('idle');
+        add(bgMachines);
+
 		var screenBackdrop:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('arcadeMenu/arcadeScreen/screenBackdrop'));
         screenBackdrop.scale.set(0.80, 0.80);
 		screenBackdrop.scrollFactor.set(0, yScroll);
