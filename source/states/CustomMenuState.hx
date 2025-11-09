@@ -531,7 +531,7 @@ class CustomMenuState extends MusicBeatState {
         var render:FlxSprite;
         switch(character) {
             case 'beans':
-                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/beans'));
             case 'vam':
                 render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'yabo':
@@ -563,7 +563,7 @@ class CustomMenuState extends MusicBeatState {
         var render:FlxSprite;
         switch(character) {
             case 'beans':
-                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
+                render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/beans'));
             case 'vam':
                 render = new FlxSprite(-80).loadGraphic(Paths.image('charSelect/fighters/yabo'));
             case 'yabo':
