@@ -621,7 +621,7 @@ class CustomMenuState extends MusicBeatState {
                 if (j == curSelected) {
                     item.visible = true;
                     if (item.x >= FlxG.width + item.width) {
-                        FlxTween.tween(item, {x: oponentRender.x - item.width/2 - 20, y: oponentRendery}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
+                        FlxTween.tween(item, {x: oponentRender.x - item.width/2 - 20, y: oponentRender.y}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
                     }
                     
                 } else {
