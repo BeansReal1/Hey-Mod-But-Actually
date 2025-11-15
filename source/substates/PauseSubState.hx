@@ -174,7 +174,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	private function createPlayerArt(x:Float,y:Float, scaleX:Float = 1, scaleY:Float = 1) { //scale is 1 by default only add the parameters if you wanna change it
         // var color:FlxColor;
-		var songName:String = getPauseSong();
+		var songName:String = Paths.formatToSongPath(PlayState.SONG.song);
 		// moved art to global
 		// just add more cases and shit for this it should work
 		switch(songName) {
