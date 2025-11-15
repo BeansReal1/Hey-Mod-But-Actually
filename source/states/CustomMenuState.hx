@@ -57,6 +57,11 @@ class CustomMenuState extends MusicBeatState {
     var playerFlag:Bool;
     var oponentFlag:Bool;
 
+    var playerRenderx:Float = 0;
+    var playerRendery:Float = 20;
+    var oponentRenderx:Float = FlxG.width - 100;
+    var oponentRendery:Float = 20;
+
     var menuItems:FlxTypedGroup<FlxSprite>;
     var renderItemsPlayer:FlxTypedGroup<FlxSprite>;
     var renderItemsOponent:FlxTypedGroup<FlxSprite>;
@@ -202,10 +207,10 @@ class CustomMenuState extends MusicBeatState {
         add(renderItemsOponent);
 
 
-        var playerRenderx:Float = 0;
-        var playerRendery:Float = 20;
-        var oponentRenderx:Float = FlxG.width - 100;
-        var oponentRendery:Float = 20;
+        playerRenderx = 0;
+        playerRendery = 20;
+        oponentRenderx = FlxG.width - 100;
+        oponentRendery = 20;
         for (num => character in characters) {
             createCharacter(100 + num*300, 50, FlxColor.WHITE, character);
             createRenderPlayer(playerRenderx, playerRendery, character);
@@ -621,7 +626,7 @@ class CustomMenuState extends MusicBeatState {
                 if (j == curSelected) {
                     item.visible = true;
                     if (item.x >= FlxG.width + item.width) {
-                        FlxTween.tween(item, {x: oponentRender.x - item.width/2 - 20, y: oponentRender.y}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
+                        FlxTween.tween(item, {x: oponentRenderx - item.width/2 - 20, y: oponentRendery}, renderTweenTime, {type: FlxTween.ONESHOT, ease: FlxEase.cubeOut});
                     }
                     
                 } else {
