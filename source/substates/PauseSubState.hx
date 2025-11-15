@@ -82,6 +82,20 @@ class PauseSubState extends MusicBeatSubstate
 		menuGraphic.x = -700;
 		add(menuGraphic);
 
+/* 		later edit this into a function or a group like how you did for the character select but instead
+		of doing it based on playerIndex and oppIndex make it so it checks the current song name and from that compares
+		that to whatever for example ( if currentSongFunctionWhatever [im pretty sure it's a pre-existing function and is actually called
+		in this substate already to show the song name in the top right]
+		probably this related to this -> 	var formattedSongName:String = (songName != null ? Paths.formatToSongPath(songName) : '');
+		or this -> 		var songLowercase:String = Paths.formatToSongPath(PlayState.SONG.song);
+		anyways yeah like ( if currentSongFunctionWhatever == for example 'noli' then it will show the beans pause art etc
+		sorry im making a big ass comment i just want it to be clear
+		) */
+
+		var playerPauseArt:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
+        playerPauseArt.scale.set(0.70, 0.70);
+		add(playerPauseArt);
+
 		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
@@ -152,6 +166,23 @@ class PauseSubState extends MusicBeatSubstate
 
 		super.create();
 	}
+
+	    private function createPlayerArt(x:Float,y:Float,character:String) {
+        // var color:FlxColor;
+        var art:FlxSprite;
+
+		// probably put the songcheck shit down here i'm just not really sure how to so i'm just gonna let you tackle that
+
+/*         switch(character) {
+            case 'sacrifice':
+                art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
+            default:
+                art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo')); 
+        }
+
+		renderItemsPlayer.add(art); */
+
+    }
 	
 	function getPauseSong()
 	{
