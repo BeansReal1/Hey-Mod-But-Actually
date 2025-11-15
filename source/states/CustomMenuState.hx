@@ -209,7 +209,7 @@ class CustomMenuState extends MusicBeatState {
 
         playerRenderx = 0;
         playerRendery = 20;
-        oponentRenderx = FlxG.width - 100;
+        oponentRenderx = FlxG.width - 225;
         oponentRendery = 20;
         for (num => character in characters) {
             createCharacter(100 + num*300, 50, FlxColor.WHITE, character);
