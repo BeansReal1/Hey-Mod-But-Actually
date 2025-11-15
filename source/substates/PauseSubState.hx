@@ -27,6 +27,7 @@ class PauseSubState extends MusicBeatSubstate
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 
 	var missingTextBG:FlxSprite;
+	var art:FlxSprite = null;
 	var missingText:FlxText;
 
 	public static var songName:String = null;
@@ -172,9 +173,8 @@ class PauseSubState extends MusicBeatSubstate
 
 	private function createPlayerArt(x:Float,y:Float, scaleX:Float = 1, scaleY:Float = 1) { //scale is 1 by default only add the parameters if you wanna change it
         // var color:FlxColor;
-        var art:FlxSprite;
 		var songName:String = getPauseSong();
-		
+		// moved art to global
 		// just add more cases and shit for this it should work
 		switch(songName) {
 			case "noli":
