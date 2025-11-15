@@ -145,6 +145,7 @@ class PauseSubState extends MusicBeatSubstate
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(menuGraphic, { x: 0, y: menuGraphic.y }, 0.6, {ease: FlxEase.expoOut});
+		FlxTween.tween(art, { x: 50 }, 0.6, {ease: FlxEase.expoOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
@@ -185,8 +186,10 @@ class PauseSubState extends MusicBeatSubstate
 				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
 		}
 
-		art.x = x;
-		art.y = y;
+		art.screenCenter();
+		art.x = -700;
+		art.y = 100;
+		// art.angle = -45;
 		art.scale.set(scaleX, scaleY);
 		art.updateHitbox();
 		add(art);
