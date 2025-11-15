@@ -67,10 +67,7 @@ class CustomMenuState extends MusicBeatState {
     var selectedItem:FlxSprite;
     public static var curSelected:Int = 0;
 
-    var playerRenderx:Float = 20;
-    var playerRendery:Float = 20;
-    var oponentRenderx:Float = FlxG.width - 100;
-    var oponentRendery:Float = 20;
+
 
     var characters:Array<String> = [
 		'beans',
@@ -204,10 +201,15 @@ class CustomMenuState extends MusicBeatState {
         add(renderItemsPlayer);
         add(renderItemsOponent);
 
+
+        var playerRenderx:Float = 0;
+        var playerRendery:Float = 20;
+        var oponentRenderx:Float = FlxG.width - 100;
+        var oponentRendery:Float = 20;
         for (num => character in characters) {
             createCharacter(100 + num*300, 50, FlxColor.WHITE, character);
-            createRenderPlayer(0, playerRendery, character);
-            createRenderOponent(FlxG.width, oponentRendery, character);
+            createRenderPlayer(playerRenderx, playerRendery, character);
+            createRenderOponent(oponentRenderx, oponentRendery, character);
         }
 
         positionMenuItems(false);

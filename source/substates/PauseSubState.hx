@@ -92,9 +92,12 @@ class PauseSubState extends MusicBeatSubstate
 		sorry im making a big ass comment i just want it to be clear
 		) */
 
-		var playerPauseArt:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
-        playerPauseArt.scale.set(0.70, 0.70);
-		add(playerPauseArt);
+		//bro types too much lol the function just gives you the songName thats what its there for retuzz
+		var pauseX:Float = 0.0;
+		var pauseY:Float = 0.0;
+		var pauseScaleX:Float = 0.7;
+		var pauseScaleY:Float = 0.7;
+		createPlayerArt(pauseX, pauseY, pauseScaleX, pauseScaleY); 
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, PlayState.SONG.song, 32);
 		levelInfo.scrollFactor.set();
@@ -167,20 +170,26 @@ class PauseSubState extends MusicBeatSubstate
 		super.create();
 	}
 
-	    private function createPlayerArt(x:Float,y:Float,character:String) {
+	private function createPlayerArt(x:Float,y:Float, scaleX:Float = 1, scaleY:Float = 1) { //scale is 1 by default only add the parameters if you wanna change it
         // var color:FlxColor;
         var art:FlxSprite;
+		var songName:String = getPauseSong();
+		
+		// just add more cases and shit for this it should work
+		switch(songName) {
+			case "noli":
+				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo')); // obviously change depending on the song
+			case "sacrifice":
+				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
+			default:
+				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
+		}
 
-		// probably put the songcheck shit down here i'm just not really sure how to so i'm just gonna let you tackle that
-
-/*         switch(character) {
-            case 'sacrifice':
-                art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
-            default:
-                art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo')); 
-        }
-
-		renderItemsPlayer.add(art); */
+		art.x = x;
+		art.y = y;
+		art.scale.set(scaleX, scaleY);
+		art.updateHitbox();
+		add(art);
 
     }
 	
