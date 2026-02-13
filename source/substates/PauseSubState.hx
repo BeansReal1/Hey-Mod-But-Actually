@@ -76,8 +76,8 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
-		var menuGraphic:FlxSprite = new FlxSprite().makeGraphic(1, 1, FlxColor.WHITE);
-		menuGraphic.scale.set(600, FlxG.height);
+        var menuGraphic:FlxSprite = new FlxSprite().loadGraphic(Paths.image('pauseMenu/characterBox'));
+    	menuGraphic.scale.set(0.70, 0.70);
 		menuGraphic.updateHitbox();
 		menuGraphic.scrollFactor.set();
 		menuGraphic.x = -700;
@@ -144,8 +144,8 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(menuGraphic, { x: 0, y: menuGraphic.y }, 0.6, {ease: FlxEase.expoOut});
-		FlxTween.tween(art, { x: 50 }, 0.6, {ease: FlxEase.expoOut});
+		FlxTween.tween(menuGraphic, { x: -10, y: menuGraphic.y }, 0.6, {ease: FlxEase.expoOut});
+		FlxTween.tween(art, { x: 20 }, 0.6, {ease: FlxEase.expoOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
@@ -188,9 +188,9 @@ class PauseSubState extends MusicBeatSubstate
 
 		art.screenCenter();
 		art.x = -700;
-		art.y = 100;
+		art.y = 160;
 		// art.angle = -45;
-		art.scale.set(scaleX, scaleY);
+		art.scale.set(0.7, 0.7);
 		art.updateHitbox();
 		add(art);
 
