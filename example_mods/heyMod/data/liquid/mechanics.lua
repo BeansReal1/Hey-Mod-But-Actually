@@ -5,8 +5,7 @@ function onCreate()
 
 	activeParryTime = 0.5
 	cooldownParryTime = 0.2
-	currentParryTime = 0
-
+	currentParryTime = 0 
 
 	makeAnimatedLuaSprite('parryEffect', 'roa/parryEffect', 'boyfriend.x', 'boyfriend.y');
 	addAnimationByPrefix('parryEffect', 'parry', 'parry effect', 24, false);
@@ -22,7 +21,7 @@ function onUpdate(dt)
 	end
 
 	if getProperty('parryEffect.animation.curAnim.finished') and getProperty('parryEffect.animation.curAnim.name') == 'parry' then
-		endParry()
+		setProperty("parryEffect.alpha", 0);
 	end
 
 	if isParrying then 
@@ -35,10 +34,7 @@ function onUpdate(dt)
 			isParryingActive = false 
 			canParry = false 
 		else 
-			isParryingActive = false 
-			canParry = true
-			isParrying = false
-			currentParryTime = 0
+			endParry()
 		end
 
 	end
@@ -70,7 +66,10 @@ function startParry()
 end 
 
 function endParry()
-	setProperty("parryEffect.alpha", 0);
+	isParryingActive = false 
+	canParry = true
+	isParrying = false
+	currentParryTime = 0
 
 	runHaxeCode([[
         var colorSwap = new ColorSwap();
