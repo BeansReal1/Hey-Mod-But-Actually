@@ -4,6 +4,7 @@ function onCreate()
 	addAnimationByPrefix('parryEffect', 'parry', 'parry effect', 24, false);
 	addLuaSprite('parryEffect', false);
 	setProperty("parryEffect.alpha", 0);
+	addHaxeLibrary('ColorSwap', 'shaders')
 end
 
 function onUpdate()
@@ -12,9 +13,11 @@ function onUpdate()
 		setProperty("parryEffect.alpha", 1) 
 		playAnim("parryEffect", "parry", true)
 		setProperty("boyfriend.specialAnim", true) 
+
+		
 		runHaxeCode([[
         	var colorSwap = new ColorSwap();
-        	game.modchartSprites.get(boyfriend).shader = colorSwap.shader;
+        	game.boyfriend.shader = colorSwap.shader;
         	colorSwap.hue = 0/360;
         	colorSwap.saturation = 0/100;
         	colorSwap.brightness = 80/100;
@@ -23,6 +26,15 @@ function onUpdate()
 
 	if getProperty('parryEffect.animation.curAnim.finished') and getProperty('parryEffect.animation.curAnim.name') == 'parry' then
 		setProperty("parryEffect.alpha", 0);
+
+		runHaxeCode([[
+        	var colorSwap = new ColorSwap();
+        	game.boyfriend.shader = colorSwap.shader;
+        	colorSwap.hue = 0/360;
+        	colorSwap.saturation = 0/100;
+        	colorSwap.brightness = 0/100;
+		]])
+
 	end
 
 end
