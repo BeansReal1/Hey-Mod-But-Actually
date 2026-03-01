@@ -84,7 +84,8 @@ class CustomMenuState extends MusicBeatState {
 	];
 
     var beansOponents:Array<String> = [
-        'vam'
+        'vam',
+        'yabo'
     ];
 
     var vamOponents:Array<String> = [
@@ -409,6 +410,9 @@ class CustomMenuState extends MusicBeatState {
             if (characters[playerIndex] == 'beans') {
                 if (characters[oponentIndex] == 'vam') {
                     enterSong("noli");
+                }
+                if (characters[oponentIndex] == 'yabo') {
+                    enterSong("liquid");
                 }
             }
 

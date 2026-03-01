@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="parryEffect.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="parry effect0000" x="10" y="10" width="357" height="357" frameX="-188" frameY="-188" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0001" x="377" y="10" width="727" height="727" frameX="-4" frameY="-4" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0002" x="1114" y="10" width="735" height="735"/>
+	<SubTexture name="parry effect0003" x="1114" y="10" width="735" height="735"/>
+	<SubTexture name="parry effect0004" x="1114" y="10" width="735" height="735"/>
+	<SubTexture name="parry effect0005" x="10" y="755" width="620" height="620" frameX="-57" frameY="-57" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0006" x="10" y="755" width="620" height="620" frameX="-57" frameY="-57" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0007" x="640" y="755" width="392" height="392" frameX="-171" frameY="-171" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0008" x="640" y="755" width="392" height="392" frameX="-171" frameY="-171" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0009" x="1042" y="755" width="92" height="92" frameX="-321" frameY="-321" frameWidth="735" frameHeight="735"/>
+	<SubTexture name="parry effect0010" x="1042" y="755" width="92" height="92" frameX="-321" frameY="-321" frameWidth="735" frameHeight="735"/>
+</TextureAtlas>

@@ -180,6 +180,8 @@ class PauseSubState extends MusicBeatSubstate
 		switch(songName) {
 			case "noli":
 				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/beans')); // obviously change depending on the song
+			case "liquid":
+				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/beans'));
 			case "sacrifice":
 				art = new FlxSprite(-80).loadGraphic(Paths.image('pauseMenu/player/yabo'));
 			default:
