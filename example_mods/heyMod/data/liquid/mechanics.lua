@@ -11,6 +11,8 @@ function onCreate()
 	redBusterDuration = 0.5
 	redBusterParryDuration = 0.4
 	redBusterParried = false
+	redBusterDamage = 0.25
+
 
 
 	makeAnimatedLuaSprite('parryEffect', 'roa/parryEffect', getGraphicMidpointX('boyfriend'), getGraphicMidpointY('boyfriend'));
@@ -62,15 +64,23 @@ function onUpdate(dt)
 	end
 
 	if redBusterExists then 
+		local cameraShakeIntensity = 0.02
+		local cameraShakeDuration = 0.07
+
 		if checkCollision('redBuster', 'boyfriend') and isParryingActive and not redBusterParried then 
 			parryRedBuster()
+
 		elseif checkCollision('redBuster', 'boyfriend') and not isParryingActive and not redBusterParried then 
-			-- take damage here
+			-- take damage
+			setHealth(getHealth() - redBusterDamage)
+			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
 		end 
 
 		if checkCollision('redBuster', 'dad') and redBusterParried then 
 			-- susie takes damage
+			setHealth(getHealth() + redBusterDamage)
+			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
 		end
 	end 
@@ -158,5 +168,7 @@ function checkCollision(spriteA, spriteB)
         return false 
     end
 end
+
+
 
 

@@ -1,0 +1,2 @@
+Value 1: Target alpha (ranges from 0 to 1), Default: 0.25
+Value 2: Time it takes, Default: 1
