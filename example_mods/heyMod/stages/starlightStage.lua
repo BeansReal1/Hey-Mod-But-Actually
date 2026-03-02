@@ -5,16 +5,15 @@ function onCreate()
 	addLuaSprite('bg',false)
 	
 	makeLuaSprite('speakerLeft', 'roa/speakerSketch', -200, -20);
-	setLuaSpriteScrollFactor('speakerLeft', 1.02, 1);
+	setScrollFactor('speakerLeft', 1.02, 1);
 	addLuaSprite('speakerLeft', false);
 
 	makeLuaSprite('speakeRight', 'roa/speakerSketch', 1650, -20);
-	setLuaSpriteScrollFactor('speakeRight', 1.02, 1);
+	setScrollFactor('speakeRight', 1.02, 1);
 	addLuaSprite('speakeRight', false);
 	setProperty('speakeRight.scale.x', -1)
 
 	makeLuaSprite('stage', 'roa/stageSketch', -410, 835);
 	addLuaSprite('stage', false);
-
 
 end

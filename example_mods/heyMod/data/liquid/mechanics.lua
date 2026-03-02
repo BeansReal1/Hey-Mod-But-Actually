@@ -85,6 +85,8 @@ function onUpdate(dt)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
 	    	playSound('snd_rudebuster_hit', 0.9)
+		    playAnim('dad', 'hurt', true)
+			setProperty("dad.specialAnim", true) 
 		end
 	end 
 
