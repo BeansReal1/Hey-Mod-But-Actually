@@ -8,10 +8,10 @@ function onCreate()
 	setScrollFactor('speakerLeft', 1.02, 1);
 	addLuaSprite('speakerLeft', false);
 
-	makeLuaSprite('speakeRight', 'roa/speakerSketch', 1650, -20);
-	setScrollFactor('speakeRight', 1.02, 1);
-	addLuaSprite('speakeRight', false);
-	setProperty('speakeRight.scale.x', -1)
+	makeLuaSprite('speakerRight', 'roa/speakerSketch', 1650, -20);
+	setScrollFactor('speakerRight', 1.02, 1);
+	addLuaSprite('speakerRight', false);
+	setProperty('speakerRight.scale.x', -1)
 
 	makeLuaSprite('stage', 'roa/stageSketch', -410, 835);
 	addLuaSprite('stage', false);
