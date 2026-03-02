@@ -130,6 +130,7 @@ function spawnRedBuster()
 
 	makeLuaSprite('redBuster', 'roa/redBusterPlaceholder', getGraphicMidpointX('dad'), getGraphicMidpointY('dad'))
 	addLuaSprite('redBuster', true)
+	setProperty('redBuster.scale.x', -1)
 	doTweenX('redBusterTween', 'redBuster', getGraphicMidpointX('boyfriend'), redBusterDuration, 'linear')
 	redBusterExists = true
 	redBusterParried = false
@@ -137,7 +138,7 @@ end
 
 function parryRedBuster()
 	cancelTween('redBusterTween')
-	setProperty('redBuster.scale.x', -1)
+	setProperty('redBuster.scale.x', 1)
 	--setProperty('redBuster.x', getGraphicMidpointX('boyfriend'))
 	doTweenX('redBusterParryTween', 'redBuster', getGraphicMidpointX('dad'), redBusterParryDuration, 'linear')
 	redBusterParried = true
