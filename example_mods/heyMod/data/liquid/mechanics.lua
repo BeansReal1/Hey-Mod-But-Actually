@@ -3,19 +3,28 @@ function onCreate()
 	isParryingActive = false
 	canParry = true
 
-	activeParryTime = 0.5
+	activeParryTime = 0.2
 	cooldownParryTime = 0.2
-	currentParryTime = 0 
+	currentParryTime = 0 -- do not touch this one
 
 	redBusterExists = false
 	redBusterDuration = 0.5
 	redBusterParryDuration = 0.4
 	redBusterParried = false
-	redBusterDamage = 0.25
+	redBusterDamage = 0.4
+
+	parryOffsetX = -160
+	parryOffsetY = -170
+
+	-- this is for consistency in the rude buster trajectory
+	initialDadMidX = getGraphicMidpointX('dad')
+	initialDadMidY = getGraphicMidpointY('dad')
+	initialBfMidX = getGraphicMidpointX('boyfriend')
+	initialBfdMidY = getGraphicMidpointY('boyfriend')
 
 
 
-	makeAnimatedLuaSprite('parryEffect', 'roa/parryEffect', getGraphicMidpointX('boyfriend'), getGraphicMidpointY('boyfriend'));
+	makeAnimatedLuaSprite('parryEffect', 'roa/parryEffect', getProperty('boyfriend.x') + parryOffsetX, getProperty('boyfriend.y') + parryOffsetY);
 	addAnimationByPrefix('parryEffect', 'parry', 'parry effect', 24, false);
 	addLuaSprite('parryEffect', false);
 	setProperty("parryEffect.alpha", 0);
@@ -23,8 +32,8 @@ function onCreate()
 end
 
 function onUpdate(dt)
-	setProperty('parryEffect.x', getGraphicMidpointX('boyfriend'))
-	setProperty('parryEffect.y', getGraphicMidpointY('boyfriend'))
+	setProperty('parryEffect.x', getProperty('boyfriend.x') + parryOffsetX)
+	setProperty('parryEffect.y', getProperty('boyfriend.y') + parryOffsetY)
 
 	--DEBUG OPTIONS
 	if keyboardJustPressed('BACKSPACE') then
@@ -68,10 +77,10 @@ function onUpdate(dt)
 		local cameraShakeIntensity = 0.02
 		local cameraShakeDuration = 0.07
 
-		if checkCollision('redBuster', 'boyfriend') and isParryingActive and not redBusterParried then 
+		if checkCollision('redBuster', 'boyfriend', redBusterParried) and isParryingActive and not redBusterParried then 
 			parryRedBuster()
 	    	playSound('snd_parry_success', 0.9)
-		elseif checkCollision('redBuster', 'boyfriend') and not isParryingActive and not redBusterParried then 
+		elseif checkCollision('redBuster', 'boyfriend', redBusterParried) and not isParryingActive and not redBusterParried then 
 			-- take damage
 			setHealth(getHealth() - redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
@@ -79,7 +88,7 @@ function onUpdate(dt)
 	    	playSound('snd_rudebuster_hit', 0.9)
 		end 
 
-		if checkCollision('redBuster', 'dad') and redBusterParried then 
+		if checkCollision('redBuster', 'dad', redBusterParried) and redBusterParried then 
 			-- susie takes damage
 			setHealth(getHealth() + redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
@@ -132,21 +141,26 @@ function endParry()
 end
 
 function spawnRedBuster()
+	local redBusterScale = 1.75
+	local redBusterOffsetY = -230
+	local redBusterOffsetX = -50
 
     playSound('snd_rudebuster_swing', 0.9)
-	makeLuaSprite('redBuster', 'roa/redBusterPlaceholder', getGraphicMidpointX('dad'), getGraphicMidpointY('dad'))
+	makeLuaSprite('redBuster', 'roa/redBusterPlaceholder', initialDadMidX + redBusterOffsetX, initialDadMidY + redBusterOffsetY)
 	addLuaSprite('redBuster', true)
-	setProperty('redBuster.scale.x', -1)
-	doTweenX('redBusterTween', 'redBuster', getGraphicMidpointX('boyfriend'), redBusterDuration, 'linear')
+	setProperty('redBuster.scale.x', -redBusterScale)
+	setProperty('redBuster.scale.y', -redBusterScale)
+	updateHitbox('redBuster')
+	doTweenX('redBusterTween', 'redBuster', initialBfMidX, redBusterDuration, 'linear')
 	redBusterExists = true
 	redBusterParried = false
 end
 
 function parryRedBuster()
 	cancelTween('redBusterTween')
-	setProperty('redBuster.scale.x', 1)
-	--setProperty('redBuster.x', getGraphicMidpointX('boyfriend'))
-	doTweenX('redBusterParryTween', 'redBuster', getGraphicMidpointX('dad'), redBusterParryDuration, 'linear')
+	setProperty('redBuster.scale.x', -getProperty('redBuster.scale.x'))
+	updateHitbox('redBuster')
+	doTweenX('redBusterParryTween', 'redBuster', initialDadMidX, redBusterParryDuration, 'linear')
 	redBusterParried = true
 end
 
@@ -156,16 +170,20 @@ function destroyRedBuster()
 	redBusterParried = false
 end
 
-function checkCollision(spriteA, spriteB)
-	local hitboxOffset = 5 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
+function checkCollision(spriteA, spriteB, parried)
+	local hitboxOffset = 170 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
+	if parried then 
+		hitboxOffset = -hitboxOffset
+	end
+
 
 	-- sprite A is usually red buster
     local a_left = getProperty(spriteA .. '.x')
     local a_right = getProperty(spriteA .. '.x') + getProperty(spriteA .. '.width')
 
 
-    local b_left = getProperty(spriteB .. '.x') -- hitboxOffset would go here but I'd have to change it depending on if its kibble or susie, I can do it but I wanna have the sprites first
-    local b_right = getProperty(spriteB .. '.x') + getProperty(spriteB .. '.width') 
+    local b_left = getProperty(spriteB .. '.x') - hitboxOffset
+    local b_right = getProperty(spriteB .. '.x') + getProperty(spriteB .. '.width') - hitboxOffset
 
 
 
