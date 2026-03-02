@@ -42,6 +42,7 @@ function onUpdate(dt)
 
 	if keyboardJustPressed('SPACE') and canParry then
 		startParry()
+	    playSound('snd_parry_miss', 0.9)
 	end
 
 	if getProperty('parryEffect.animation.curAnim.finished') and getProperty('parryEffect.animation.curAnim.name') == 'parry' then
@@ -69,12 +70,13 @@ function onUpdate(dt)
 
 		if checkCollision('redBuster', 'boyfriend') and isParryingActive and not redBusterParried then 
 			parryRedBuster()
-
+	    	playSound('snd_parry_success', 0.9)
 		elseif checkCollision('redBuster', 'boyfriend') and not isParryingActive and not redBusterParried then 
 			-- take damage
 			setHealth(getHealth() - redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
+	    	playSound('snd_rudebuster_hit', 0.9)
 		end 
 
 		if checkCollision('redBuster', 'dad') and redBusterParried then 
@@ -82,6 +84,7 @@ function onUpdate(dt)
 			setHealth(getHealth() + redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
+	    	playSound('snd_rudebuster_hit', 0.9)
 		end
 	end 
 
@@ -128,6 +131,7 @@ end
 
 function spawnRedBuster()
 
+    playSound('snd_rudebuster_swing', 0.9)
 	makeLuaSprite('redBuster', 'roa/redBusterPlaceholder', getGraphicMidpointX('dad'), getGraphicMidpointY('dad'))
 	addLuaSprite('redBuster', true)
 	setProperty('redBuster.scale.x', -1)
