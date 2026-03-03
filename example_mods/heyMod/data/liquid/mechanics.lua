@@ -40,6 +40,7 @@ function onCreate()
 	isStunned = false
 	
 	hitboxOffset = 170
+	hitboxOffsetSusie = 300
 
 	parryOffsetX = -160
 	parryOffsetY = -170
@@ -314,59 +315,17 @@ function onTweenCompleted(tag)
 		doTweenY('ralseiParryTweenFall', 'ralsei', initialDadMidY, ralseiParryDuration/2, 'quadIn')
 	end
 
-	if tag == "trailTween0" then 
-		removeLuaSprite("trail0")
+	for i = 0, 20 do
+		if tag == 'trailTween' .. i then
+			removeLuaSprite('trail' .. i)
+		end
+
+		if tag == "trailTweenParry" .. i then 
+		removeLuaSprite("trailParry" .. i)
+		end
 	end
 
-	
-	if tag == "trailTween1" then 
-		removeLuaSprite("trail1")
-	end
 
-	
-	if tag == "trailTween2" then 
-		removeLuaSprite("trail2")
-	end
-
-	
-	if tag == "trailTween3" then 
-		removeLuaSprite("trail3")
-	end
-
-	
-	if tag == "trailTween4" then 
-		removeLuaSprite("trail4")
-	end
-
-	
-	if tag == "trailTween5" then 
-		removeLuaSprite("trail5")
-	end
-
-	
-	if tag == "trailTweenParry0" then 
-		removeLuaSprite("trailParry0")
-	end
-
-	if tag == "trailTweenParry1" then 
-		removeLuaSprite("trailParry1")
-	end
-
-	if tag == "trailTweenParry2" then 
-		removeLuaSprite("trailParry2")
-	end
-
-	if tag == "trailTweenParry3" then 
-		removeLuaSprite("trailParry3")
-	end
-
-	if tag == "trailTweenParry4" then 
-		removeLuaSprite("trailParry4")
-	end
-
-	if tag == "trailTweenParry5" then 
-		removeLuaSprite("trailParry5")
-	end
 end
 
 function spawnRedBuster()
@@ -406,7 +365,7 @@ function spawnParryTrail(trailAmount, alpha, scale, parried)
 		setProperty('trailParry' .. trailAmount .. '.scale.y', scale)
 		setProperty('trailParry' .. trailAmount .. '.alpha', alpha)
 		updateHitbox('trailParry' .. trailAmount)
-		doTweenX('trailTweenParry' .. trailAmount, 'trailParry' .. trailAmount, initialDadMidX, redBusterParryDuration, 'linear')
+		doTweenX('trailTweenParry' .. trailAmount, 'trailParry' .. trailAmount, initialDadMidX + hitboxOffsetSusie, redBusterParryDuration, 'linear')
 	end
 
 end
@@ -417,22 +376,12 @@ function destroyTrail()
 	trailCounter = 0
 	trailTimer = 0
 
-	cancelTween('trailTween0')
-	cancelTween('trailTween1')
-	cancelTween('trailTween2')
-	cancelTween('trailTween3')
-	cancelTween('trailTween4')
-	cancelTween('trailTween5')
 
-
-	removeLuaSprite('trail0')
-	removeLuaSprite('trail1')
-	removeLuaSprite('trail2')
-	removeLuaSprite('trail3')
-	removeLuaSprite('trail4')
-	removeLuaSprite('trail5')
 	
-
+	for i = 0, 20 do
+		cancelTween('trailTween' .. i)
+		removeLuaSprite('trail' .. i)
+	end
 
 
 
@@ -444,19 +393,12 @@ function destroyParryTrail()
 	trailCounter = 0
 	trailTimer = 0
 
-	cancelTween('trailTweenParry0')
-	cancelTween('trailTweenParry1')
-	cancelTween('trailTweenParry2')
-	cancelTween('trailTweenParry3')
-	cancelTween('trailTweenParry4')
-	cancelTween('trailTweenParry5')
 
-	removeLuaSprite('trailParry0')
-	removeLuaSprite('traillParry1')
-	removeLuaSprite('trailParry2')
-	removeLuaSprite('trailParry3')
-	removeLuaSprite('trailParry4')
-	removeLuaSprite('trailParry5')
+
+	for i = 0, 20 do
+		cancelTween('trailTweenParry' .. i)
+		removeLuaSprite('trailParry' .. i)
+	end
 
 end
 
@@ -464,7 +406,7 @@ function parryRedBuster()
 	cancelTween('redBusterTween')
 	setProperty('redBuster.scale.x', -getProperty('redBuster.scale.x'))
 	updateHitbox('redBuster')
-	doTweenX('redBusterParryTween', 'redBuster', initialDadMidX, redBusterParryDuration, 'linear')
+	doTweenX('redBusterParryTween', 'redBuster', initialDadMidX + hitboxOffsetSusie, redBusterParryDuration, 'linear')
 	
 	redBusterParried = true
 end
@@ -486,8 +428,11 @@ end
 
 function checkCollision(spriteA, spriteB, parried)
 	 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
+	local hboxOffset
 	if parried then 
-		hitboxOffset = -hitboxOffset
+		hboxOffset = -hitboxOffsetSusie
+	else 
+		hboxOffset = hitboxOffset
 	end
 
 
@@ -496,8 +441,8 @@ function checkCollision(spriteA, spriteB, parried)
     local a_right = getProperty(spriteA .. '.x') + getProperty(spriteA .. '.width')
 
 
-    local b_left = getProperty(spriteB .. '.x') - hitboxOffset
-    local b_right = getProperty(spriteB .. '.x') + getProperty(spriteB .. '.width') - hitboxOffset
+    local b_left = getProperty(spriteB .. '.x') - hboxOffset
+    local b_right = getProperty(spriteB .. '.x') + getProperty(spriteB .. '.width') - hboxOffset
 
 
 
