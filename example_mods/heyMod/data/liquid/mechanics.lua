@@ -55,7 +55,7 @@ function onUpdate(dt)
 
 	--DEBUG OPTIONS
 	if keyboardJustPressed('BACKSPACE') then
-		spawnRedBuster()
+		playAnim("dad", "pre-attack", true)
 	end
 
 	if keyboardJustPressed('P') then
@@ -121,6 +121,7 @@ function onUpdate(dt)
 			destroyRedBuster()
 	    	playSound('snd_rudebuster_hit', 0.9)
 		    playAnim('dad', 'hurt', true)
+			setProperty('dad.stunned', true)
 			setProperty("dad.specialAnim", true) 
 		end
 	end 
