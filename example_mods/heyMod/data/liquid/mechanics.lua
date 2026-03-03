@@ -80,6 +80,10 @@ function onUpdate(dt)
 		setProperty("parryEffect.alpha", 0);
 	end
 
+	if getProperty('dad.animation.curAnim.finished') and getProperty('dad.animation.curAnim.name') == 'pre-attack' then
+		spawnRedBuster()
+	end
+
 	if isParrying then 
 		currentParryTime = currentParryTime + dt
 		
@@ -242,6 +246,7 @@ function spawnRedBuster()
 	local redBusterOffsetY = -230
 	local redBusterOffsetX = -50
 
+	playAnim('dad', 'attack', true)
     playSound('snd_rudebuster_swing', 0.9)
 	makeLuaSprite('redBuster', 'roa/redBusterPlaceholder', initialDadMidX + redBusterOffsetX, initialDadMidY + redBusterOffsetY)
 	addLuaSprite('redBuster', true)
@@ -299,7 +304,7 @@ end
 function onBeatHit()
 
     if curBeat == 260 then
-		spawnRedBuster()
+		playAnim("dad", "pre-attack", true)
     end
 
 end
