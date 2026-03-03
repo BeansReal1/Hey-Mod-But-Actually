@@ -56,6 +56,7 @@ function onUpdate(dt)
 	--DEBUG OPTIONS
 	if keyboardJustPressed('BACKSPACE') then
 		playAnim("dad", "pre-attack", true)
+		setProperty("dad.specialAnim", true) 
 	end
 
 	if keyboardJustPressed('P') then
