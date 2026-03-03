@@ -22,6 +22,9 @@ function onCreate()
 	trailMaxAmount = 2
 	trailCounter = 0
 	trailAlpha = 0.7
+
+	trailScaleTarget = 1
+
 	trailActive = false
 	trailParried = false
 	parryXLocation = 0
@@ -161,7 +164,7 @@ function onUpdate(dt)
 		trailTimer = trailTimer + dt
 		if trailTimer >= trailDelay and trailCounter <= trailMaxAmount then 
 			trailCounter = trailCounter + 1
-			spawnTrail(trailCounter, trailAlpha - (trailCounter*0.1), 1.65, trailParried)
+			spawnTrail(trailCounter, trailAlpha - (trailCounter*0.15), 1.65, 1.65 - (trailCounter *0.2), trailParried)
 
 			trailTimer = 0
 		end 
@@ -174,7 +177,7 @@ function onUpdate(dt)
 		trailTimer = trailTimer + dt
 		if trailTimer >= trailDelay and trailCounter <= trailMaxAmount then 
 			trailCounter = trailCounter + 1
-			spawnParryTrail(trailCounter, trailAlpha - (trailCounter*0.1), 1.65, trailParried)
+			spawnParryTrail(trailCounter, trailAlpha - (trailCounter*0.15), 1.65, 1.65 - (trailCounter *0.2), trailParried)
 
 			trailTimer = 0
 		end 
@@ -198,7 +201,7 @@ function onUpdate(dt)
 			removeLuaSprite(spritename)
 			removeLuaSprite(spritenameParry)
 		end
-    end		
+	end
 
 	--RALSEI LOGIC
 	if ralseiExists then  
@@ -323,6 +326,8 @@ function onTweenCompleted(tag)
 		if tag == "trailTweenParry" .. i then 
 		removeLuaSprite("trailParry" .. i)
 		end
+
+
 	end
 
 
@@ -344,7 +349,7 @@ function spawnRedBuster()
 	trailActive = true
 end
 
-function spawnTrail(trailAmount, alpha, scale, parried)
+function spawnTrail(trailAmount, alpha, scale, scaleY, parried)
 	if not parried then
 		makeLuaSprite('trail' .. trailAmount, 'roa/redBusterPlaceholder', initialDadMidX + redBusterOffsetX, initialDadMidY + redBusterOffsetY)
 		addLuaSprite('trail' .. trailAmount, false)
@@ -353,11 +358,12 @@ function spawnTrail(trailAmount, alpha, scale, parried)
 		setProperty('trail' .. trailAmount .. '.alpha', alpha)
 		updateHitbox('trail' .. trailAmount)
 		doTweenX('trailTween' .. trailAmount, 'trail' .. trailAmount, initialBfMidX, redBusterDuration, 'linear')
+		--doTweenY('trailTweenScale' .. trailAmount, 'trail' .. trailAmount .. '.scale', trailScaleTarget, redBusterDuration, 'quadIn')
 	end
 
 end
 
-function spawnParryTrail(trailAmount, alpha, scale, parried)
+function spawnParryTrail(trailAmount, alpha, scale, scaleY, parried)
 	if parried then
 		makeLuaSprite('trailParry' .. trailAmount, 'roa/redBusterPlaceholder', parryXLocation, initialDadMidY + redBusterOffsetY)
 		addLuaSprite('trailParry' .. trailAmount, false)
@@ -366,6 +372,7 @@ function spawnParryTrail(trailAmount, alpha, scale, parried)
 		setProperty('trailParry' .. trailAmount .. '.alpha', alpha)
 		updateHitbox('trailParry' .. trailAmount)
 		doTweenX('trailTweenParry' .. trailAmount, 'trailParry' .. trailAmount, initialDadMidX + hitboxOffsetSusie, redBusterParryDuration, 'linear')
+		--doTweenY('trailTweenParryScale' .. trailAmount, 'trailParry' .. trailAmount .. '.scale', trailScaleTarget, redBusterDuration, 'quadIn')
 	end
 
 end
@@ -380,6 +387,7 @@ function destroyTrail()
 	
 	for i = 0, 20 do
 		cancelTween('trailTween' .. i)
+		cancelTween('trailTweenScale' .. i)
 		removeLuaSprite('trail' .. i)
 	end
 
@@ -397,6 +405,7 @@ function destroyParryTrail()
 
 	for i = 0, 20 do
 		cancelTween('trailTweenParry' .. i)
+		cancelTween('trailTweenParryScale' .. i)
 		removeLuaSprite('trailParry' .. i)
 	end
 
