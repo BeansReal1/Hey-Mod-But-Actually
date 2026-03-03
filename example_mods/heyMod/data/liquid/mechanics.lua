@@ -3,7 +3,7 @@ function onCreate()
 	isParryingActive = false
 	canParry = true
 
-	activeParryTime = 0.2
+	activeParryTime = 0.14
 	cooldownParryTime = 0.2
 	currentParryTime = 0 -- do not touch this one
 
@@ -13,8 +13,26 @@ function onCreate()
 	redBusterParried = false
 	redBusterDamage = 0.4
 
+	ralseiExists = false
+	ralseiDuration = 0.6
+	ralseiParryDuration = 0.5
+	ralseiParried = false
+	ralseiHeight = 630
+	ralseiStunDuration = 1.2
+	ralseiStunCurrent = 0 -- do NOT touch this one either bitch, or Im touching YOU
+
+	ralseiOffsetY = -230
+	ralseiOffsetX = -50
+
+	isStunned = false
+	
+	hitboxOffset = 170
+
 	parryOffsetX = -160
 	parryOffsetY = -170
+
+	cameraShakeIntensity = 0.02
+	cameraShakeDuration = 0.07
 
 	-- this is for consistency in the rude buster trajectory
 	initialDadMidX = getGraphicMidpointX('dad')
@@ -43,13 +61,17 @@ function onUpdate(dt)
 	if keyboardJustPressed('P') then
 		destroyRedBuster()
 	end
+
+	if keyboardJustPressed('Q') then 
+		spawnRalsei()
+	end
 	--DEBUG OPTIONS
 
 
 
 
 
-	if keyboardJustPressed('SPACE') and canParry then
+	if keyboardJustPressed('SPACE') and canParry and not isStunned then
 		startParry()
 	    playSound('snd_parry_miss', 0.9)
 	end
@@ -73,9 +95,9 @@ function onUpdate(dt)
 
 	end
 
+	--RED BUSTER LOGIC
 	if redBusterExists then 
-		local cameraShakeIntensity = 0.02
-		local cameraShakeDuration = 0.07
+
 
 		if checkCollision('redBuster', 'boyfriend', redBusterParried) and isParryingActive and not redBusterParried then 
 			parryRedBuster()
@@ -99,6 +121,40 @@ function onUpdate(dt)
 		end
 	end 
 
+	--RALSEI LOGIC
+	if ralseiExists then  
+
+
+		if checkCollision('ralsei', 'boyfriend', ralseiParried) and isParryingActive and not ralseiParried then 
+			parryRalsei()
+			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
+	    	playSound('snd_parry_success', 0.9)
+		elseif checkCollision('ralsei', 'boyfriend', ralseiParried) and not isParryingActive and not ralseiParried then 
+			-- stun bf
+			isStunned = true
+			ralseiStunCurrent = 0
+			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
+			destroyRalsei()
+	    	playSound('snd_hypnosis', 0.9)
+		end 
+
+		if checkCollision('ralsei', 'dad', ralseiParried) and ralseiParried then 
+			--bro hit susie
+			destroyRalsei()
+		end
+	end
+
+	--STUN LOGIC
+	if isStunned then
+		ralseiStunCurrent = ralseiStunCurrent + dt
+		setProperty('boyfriend.stunned', true)
+		if ralseiStunCurrent >= ralseiStunDuration then 
+			isStunned = false 
+			ralseiStunCurrent = 0
+		end
+	else 
+		setProperty('boyfriend.stunned', false)
+	end
 
 
 end
@@ -140,6 +196,47 @@ function endParry()
 	]])
 end
 
+function spawnRalsei()
+	local ralseiScale = 2.5
+
+	makeLuaSprite('ralsei', 'roa/ralseiPlaceholder', initialDadMidX + ralseiOffsetX, initialDadMidY + ralseiOffsetY)
+	addLuaSprite('ralsei', true)
+	setProperty('ralsei.scale.x', ralseiScale)
+	setProperty('ralsei.scale.y', ralseiScale)
+	updateHitbox('ralsei')
+	doTweenX('ralseiTweenX', 'ralsei', initialBfMidX - hitboxOffset, ralseiDuration, 'linear')
+	doTweenY('ralseiTweenRise', 'ralsei', initialDadMidY + ralseiOffsetY - ralseiHeight, ralseiDuration/2, 'quadOut')
+	ralseiExists = true 
+	ralseiParried = false 
+end
+
+function parryRalsei()
+	cancelTween('ralseiTweenX')
+	cancelTween('ralseiTweenRise')
+	cancelTween('ralseiTweenFall')
+	setProperty('ralsei.scale.x', -getProperty('ralsei.scale.x'))
+	updateHitbox('ralsei')
+	doTweenX('ralseiParryTweenX', 'ralsei', initialDadMidX + hitboxOffset, ralseiParryDuration, 'linear')
+	doTweenY('ralseiParryTweenRise', 'ralsei',  initialDadMidY + ralseiOffsetY - ralseiHeight, ralseiParryDuration/2, 'quadOut')
+	ralseiParried = true
+end
+
+function destroyRalsei()
+	removeLuaSprite('ralsei')
+	ralseiExists = false
+	ralseiParried = false
+end
+
+function onTweenCompleted(tag)
+	if tag == 'ralseiTweenRise' then 
+		doTweenY('ralseiTweenFall', 'ralsei', initialDadMidY, ralseiDuration/2, 'quadIn')
+	end
+
+	if tag == 'ralseiParryTweenRise' then 
+		doTweenY('ralseiParryTweenFall', 'ralsei', initialDadMidY, ralseiParryDuration/2, 'quadIn')
+	end
+end
+
 function spawnRedBuster()
 	local redBusterScale = 1.75
 	local redBusterOffsetY = -230
@@ -171,7 +268,7 @@ function destroyRedBuster()
 end
 
 function checkCollision(spriteA, spriteB, parried)
-	local hitboxOffset = 170 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
+	 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
 	if parried then 
 		hitboxOffset = -hitboxOffset
 	end
