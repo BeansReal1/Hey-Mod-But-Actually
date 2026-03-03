@@ -13,6 +13,19 @@ function onCreate()
 	redBusterParried = false
 	redBusterDamage = 0.4
 
+	redBusterScale = 1.75
+	redBusterOffsetY = -230
+	redBusterOffsetX = -50
+
+	trailDelay = 0.04
+	trailTimer = 0 
+	trailMaxAmount = 2
+	trailCounter = 0
+	trailAlpha = 0.7
+	trailActive = false
+	trailParried = false
+	parryXLocation = 0
+
 	ralseiExists = false
 	ralseiDuration = 0.6
 	ralseiParryDuration = 0.5
@@ -102,17 +115,23 @@ function onUpdate(dt)
 
 	--RED BUSTER LOGIC
 	if redBusterExists then 
-
+		
 
 		if checkCollision('redBuster', 'boyfriend', redBusterParried) and isParryingActive and not redBusterParried then 
+			parryXLocation = getProperty('redBuster.x')
 			parryRedBuster()
 	    	playSound('snd_parry_success', 0.9)
+			destroyTrail()
+			trailParried = true
+			trailActive = true
 		elseif checkCollision('redBuster', 'boyfriend', redBusterParried) and not isParryingActive and not redBusterParried then 
 			-- take damage
 			setHealth(getHealth() - redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
 	    	playSound('snd_rudebuster_hit', 0.9)
+
+			destroyTrail()
 		end 
 
 		if checkCollision('redBuster', 'dad', redBusterParried) and redBusterParried then 
@@ -124,8 +143,61 @@ function onUpdate(dt)
 		    playAnim('dad', 'hurt', true)
 			setProperty('dad.stunned', true)
 			setProperty("dad.specialAnim", true) 
+
+			destroyParryTrail()
+			destroyTrail()
 		end
+
 	end 
+
+	-- TRAIL LOGIC (BAD)
+
+	if trailCounter > trailMaxAmount then
+		trailActive = false 
+	end
+
+	if trailActive and not trailParried then 
+		trailTimer = trailTimer + dt
+		if trailTimer >= trailDelay and trailCounter <= trailMaxAmount then 
+			trailCounter = trailCounter + 1
+			spawnTrail(trailCounter, trailAlpha - (trailCounter*0.1), 1.65, trailParried)
+
+			trailTimer = 0
+		end 
+
+		if trailCounter > trailMaxAmount then
+			trailActive = false 
+		end
+
+	elseif  trailActive and trailParried then 
+		trailTimer = trailTimer + dt
+		if trailTimer >= trailDelay and trailCounter <= trailMaxAmount then 
+			trailCounter = trailCounter + 1
+			spawnParryTrail(trailCounter, trailAlpha - (trailCounter*0.1), 1.65, trailParried)
+
+			trailTimer = 0
+		end 
+
+		if trailCounter > trailMaxAmount then
+			trailActive = false 
+		end
+
+	end
+
+	if not trailActive then 
+		trailTimer = 0
+		treilCounter = 0
+	end
+
+	if not redBusterExists then 
+		for i = 0, 20 do
+			local spritename = 'trail' .. i
+			local spritenameParry = 'trailParry' .. i
+
+			removeLuaSprite(spritename)
+			removeLuaSprite(spritenameParry)
+		end
+    end		
 
 	--RALSEI LOGIC
 	if ralseiExists then  
@@ -241,12 +313,64 @@ function onTweenCompleted(tag)
 	if tag == 'ralseiParryTweenRise' then 
 		doTweenY('ralseiParryTweenFall', 'ralsei', initialDadMidY, ralseiParryDuration/2, 'quadIn')
 	end
+
+	if tag == "trailTween0" then 
+		removeLuaSprite("trail0")
+	end
+
+	
+	if tag == "trailTween1" then 
+		removeLuaSprite("trail1")
+	end
+
+	
+	if tag == "trailTween2" then 
+		removeLuaSprite("trail2")
+	end
+
+	
+	if tag == "trailTween3" then 
+		removeLuaSprite("trail3")
+	end
+
+	
+	if tag == "trailTween4" then 
+		removeLuaSprite("trail4")
+	end
+
+	
+	if tag == "trailTween5" then 
+		removeLuaSprite("trail5")
+	end
+
+	
+	if tag == "trailTweenParry0" then 
+		removeLuaSprite("trailParry0")
+	end
+
+	if tag == "trailTweenParry1" then 
+		removeLuaSprite("trailParry1")
+	end
+
+	if tag == "trailTweenParry2" then 
+		removeLuaSprite("trailParry2")
+	end
+
+	if tag == "trailTweenParry3" then 
+		removeLuaSprite("trailParry3")
+	end
+
+	if tag == "trailTweenParry4" then 
+		removeLuaSprite("trailParry4")
+	end
+
+	if tag == "trailTweenParry5" then 
+		removeLuaSprite("trailParry5")
+	end
 end
 
 function spawnRedBuster()
-	local redBusterScale = 1.75
-	local redBusterOffsetY = -230
-	local redBusterOffsetX = -50
+
 
 	playAnim('dad', 'attack', true)
     playSound('snd_rudebuster_swing', 0.9)
@@ -258,6 +382,82 @@ function spawnRedBuster()
 	doTweenX('redBusterTween', 'redBuster', initialBfMidX, redBusterDuration, 'linear')
 	redBusterExists = true
 	redBusterParried = false
+	trailActive = true
+end
+
+function spawnTrail(trailAmount, alpha, scale, parried)
+	if not parried then
+		makeLuaSprite('trail' .. trailAmount, 'roa/redBusterPlaceholder', initialDadMidX + redBusterOffsetX, initialDadMidY + redBusterOffsetY)
+		addLuaSprite('trail' .. trailAmount, false)
+		setProperty('trail' .. trailAmount .. '.scale.x', -scale)
+		setProperty('trail' .. trailAmount .. '.scale.y', scale)
+		setProperty('trail' .. trailAmount .. '.alpha', alpha)
+		updateHitbox('trail' .. trailAmount)
+		doTweenX('trailTween' .. trailAmount, 'trail' .. trailAmount, initialBfMidX, redBusterDuration, 'linear')
+	end
+
+end
+
+function spawnParryTrail(trailAmount, alpha, scale, parried)
+	if parried then
+		makeLuaSprite('trailParry' .. trailAmount, 'roa/redBusterPlaceholder', parryXLocation, initialDadMidY + redBusterOffsetY)
+		addLuaSprite('trailParry' .. trailAmount, false)
+		setProperty('trailParry' .. trailAmount .. '.scale.x', scale)
+		setProperty('trailParry' .. trailAmount .. '.scale.y', scale)
+		setProperty('trailParry' .. trailAmount .. '.alpha', alpha)
+		updateHitbox('trailParry' .. trailAmount)
+		doTweenX('trailTweenParry' .. trailAmount, 'trailParry' .. trailAmount, initialDadMidX, redBusterParryDuration, 'linear')
+	end
+
+end
+
+function destroyTrail() 
+	trailActive = false
+	trailParried = false
+	trailCounter = 0
+	trailTimer = 0
+
+	cancelTween('trailTween0')
+	cancelTween('trailTween1')
+	cancelTween('trailTween2')
+	cancelTween('trailTween3')
+	cancelTween('trailTween4')
+	cancelTween('trailTween5')
+
+
+	removeLuaSprite('trail0')
+	removeLuaSprite('trail1')
+	removeLuaSprite('trail2')
+	removeLuaSprite('trail3')
+	removeLuaSprite('trail4')
+	removeLuaSprite('trail5')
+	
+
+
+
+
+end
+
+function destroyParryTrail()
+	trailActive = false
+	trailParried = false
+	trailCounter = 0
+	trailTimer = 0
+
+	cancelTween('trailTweenParry0')
+	cancelTween('trailTweenParry1')
+	cancelTween('trailTweenParry2')
+	cancelTween('trailTweenParry3')
+	cancelTween('trailTweenParry4')
+	cancelTween('trailTweenParry5')
+
+	removeLuaSprite('trailParry0')
+	removeLuaSprite('traillParry1')
+	removeLuaSprite('trailParry2')
+	removeLuaSprite('trailParry3')
+	removeLuaSprite('trailParry4')
+	removeLuaSprite('trailParry5')
+
 end
 
 function parryRedBuster()
@@ -265,6 +465,7 @@ function parryRedBuster()
 	setProperty('redBuster.scale.x', -getProperty('redBuster.scale.x'))
 	updateHitbox('redBuster')
 	doTweenX('redBusterParryTween', 'redBuster', initialDadMidX, redBusterParryDuration, 'linear')
+	
 	redBusterParried = true
 end
 
@@ -272,7 +473,16 @@ function destroyRedBuster()
 	removeLuaSprite('redBuster')
 	redBusterExists = false
 	redBusterParried = false
+
+	destroyTrail()
+	destroyParryTrail()
+
+
 end
+
+
+
+
 
 function checkCollision(spriteA, spriteB, parried)
 	 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
