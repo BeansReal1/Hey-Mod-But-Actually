@@ -294,3 +294,12 @@ end
 
 
 
+-- THIS IS WHERE THE MAGIC HAPPENS
+
+function onBeatHit()
+
+    if curBeat == 260 then
+		spawnRedBuster()
+    end
+
+end
