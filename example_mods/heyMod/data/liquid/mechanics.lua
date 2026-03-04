@@ -87,7 +87,8 @@ function onUpdate(dt)
 	end
 
 	if keyboardJustPressed('Q') then 
-		spawnRalsei()
+		playAnim("dad", "pre-throw", true)
+		setProperty("dad.specialAnim", true) 
 	end
 	--DEBUG OPTIONS
 
@@ -110,6 +111,13 @@ function onUpdate(dt)
 		disableCharaAnims(false, disableDuration)
 	end
 
+	if getProperty('dad.animation.curAnim.finished') and getProperty('dad.animation.curAnim.name') == 'pre-throw' then
+		spawnRalsei()
+	end
+
+	if getProperty('dad.animation.curAnim.name') == 'pre-throw' and getProperty('dad.animation.curAnim.curFrame') == 0 then 
+		disableCharaAnims(false, disableDuration)
+	end
 
 
 	if isParrying then 
@@ -316,9 +324,10 @@ function endParry()
 end
 
 function spawnRalsei()
-	local ralseiScale = 2.5
+	local ralseiScale = 1
 
-	makeLuaSprite('ralsei', 'roa/ralseiPlaceholder', initialDadMidX + ralseiOffsetX, initialDadMidY + ralseiOffsetY)
+	playAnim('dad', 'throw', true)
+	makeLuaSprite('ralsei', 'roa/ralseiProjectile', initialDadMidX + ralseiOffsetX, initialDadMidY + ralseiOffsetY)
 	addLuaSprite('ralsei', true)
 	setProperty('ralsei.scale.x', ralseiScale)
 	setProperty('ralsei.scale.y', ralseiScale)

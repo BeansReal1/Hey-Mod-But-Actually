@@ -1,92 +1,108 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [-3, 5],
-			"loop": false,
-			"fps": 24,
 			"anim": "hey",
-			"indices": [],
-			"name": "BF HEY"
+			"fps": 24,
+			"name": "BF HEY",
+			"indices": []
 		},
 		{
-			"offsets": [-4, 0],
 			"loop": true,
-			"fps": 24,
+			"offsets": [-4, 0],
 			"anim": "scared",
-			"indices": [],
-			"name": "BF idle shaking"
+			"fps": 24,
+			"name": "BF idle shaking",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [-10, -16],
-			"loop": false,
-			"fps": 24,
 			"anim": "dodge",
-			"indices": [],
-			"name": "boyfriend dodge"
+			"fps": 24,
+			"name": "boyfriend dodge",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [-5, 0],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "susie idle",
-			"indices": []
+			"indices": [],
+			"name": "susie idle"
 		},
 		{
-			"loop": false,
 			"offsets": [94, -15],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "susie left",
-			"indices": []
+			"indices": [],
+			"name": "susie left"
 		},
 		{
-			"loop": false,
 			"offsets": [48, 44],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "susie down",
-			"indices": []
+			"indices": [],
+			"name": "susie down"
 		},
 		{
-			"loop": false,
 			"offsets": [-52, 74],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "susie up",
-			"indices": []
+			"indices": [],
+			"name": "susie up"
 		},
 		{
-			"loop": false,
 			"offsets": [-62, -8],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "susie right",
-			"indices": []
+			"indices": [],
+			"name": "susie right"
 		},
 		{
-			"loop": false,
 			"offsets": [-18, 1],
+			"loop": false,
+			"fps": 24,
 			"anim": "hurt",
-			"fps": 24,
-			"name": "susie hurt",
-			"indices": []
+			"indices": [],
+			"name": "susie hurt"
 		},
 		{
+			"offsets": [190, 343],
 			"loop": false,
-			"offsets": [194, 346],
+			"fps": 24,
 			"anim": "attack",
-			"fps": 24,
-			"name": "susie attack",
-			"indices": []
+			"indices": [],
+			"name": "susie attack"
 		},
 		{
+			"offsets": [217, 94],
 			"loop": false,
-			"offsets": [213, 78],
-			"anim": "pre-attack",
 			"fps": 24,
-			"name": "susie pre-attack",
-			"indices": []
+			"anim": "pre-attack",
+			"indices": [],
+			"name": "susie pre-attack"
+		},
+		{
+			"offsets": [-75, 212],
+			"indices": [],
+			"fps": 24,
+			"anim": "pre-throw",
+			"loop": false,
+			"name": "susie pre-throw"
+		},
+		{
+			"offsets": [224, -50],
+			"indices": [],
+			"fps": 24,
+			"anim": "throw",
+			"loop": false,
+			"name": "susie throw"
 		}
 	],
 	"vocals_file": "",
