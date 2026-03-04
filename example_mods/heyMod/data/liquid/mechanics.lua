@@ -226,11 +226,11 @@ function onUpdate(dt)
 	if ralseiExists then  
 
 
-		if checkCollision('ralsei', 'boyfriend', ralseiParried) and isParryingActive and not ralseiParried then 
+		if checkCollision('ralsei', 'boyfriend', ralseiParried, true) and isParryingActive and not ralseiParried then 
 			parryRalsei()
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 	    	playSound('snd_parry_success', 0.9)
-		elseif checkCollision('ralsei', 'boyfriend', ralseiParried) and not isParryingActive and not ralseiParried then 
+		elseif checkCollision('ralsei', 'boyfriend', ralseiParried, true) and not isParryingActive and not ralseiParried then 
 			-- stun bf
 			isStunned = true
 			ralseiStunCurrent = 0
@@ -240,7 +240,7 @@ function onUpdate(dt)
 			disableCharaAnims(true, ralseiStunDuration)
 		end 
 
-		if checkCollision('ralsei', 'dad', ralseiParried) and ralseiParried then 
+		if checkCollision('ralsei', 'dad', ralseiParried, true) and ralseiParried then 
 			--bro hit susie
 			destroyRalsei()
 		end
@@ -481,19 +481,24 @@ end
 
 
 
-function checkCollision(spriteA, spriteB, parried)
+function checkCollision(spriteA, spriteB, parried, ralsei)
 	 -- this is to make it so the hitbox is slightly behind the character that way the timing feels better to parry, not applying it until we actually get the sprites tho
 	local hboxOffset
+	local ralseiOffset = 70
 	if parried then 
 		hboxOffset = -hitboxOffsetSusie
 	else 
 		hboxOffset = hitboxOffset
 	end
 
+	if not ralsei then 
+		ralseiOffset = 0
+	end
+
 
 	-- sprite A is usually red buster
-    local a_left = getProperty(spriteA .. '.x')
-    local a_right = getProperty(spriteA .. '.x') + getProperty(spriteA .. '.width')
+    local a_left = getProperty(spriteA .. '.x') + ralseiOffset
+    local a_right = getProperty(spriteA .. '.x') + getProperty(spriteA .. '.width') + ralseiOffset
 
 
     local b_left = getProperty(spriteB .. '.x') - hboxOffset
