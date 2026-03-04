@@ -13,6 +13,9 @@ function onCreate()
 	redBusterParried = false
 	redBusterDamage = 0.4
 
+
+
+
 	redBusterScale = 1.75
 	redBusterOffsetY = -230
 	redBusterOffsetX = -50
@@ -28,6 +31,8 @@ function onCreate()
 	trailActive = false
 	trailParried = false
 	parryXLocation = 0
+
+	disableDuration = 0.63 -- change this for susies disabled anims
 
 	ralseiExists = false
 	ralseiDuration = 0.6
@@ -66,6 +71,7 @@ function onCreate()
 	addHaxeLibrary('ColorSwap', 'shaders')
 end
 
+
 function onUpdate(dt)
 	setProperty('parryEffect.x', getProperty('boyfriend.x') + parryOffsetX)
 	setProperty('parryEffect.y', getProperty('boyfriend.y') + parryOffsetY)
@@ -87,8 +93,6 @@ function onUpdate(dt)
 
 
 
-
-
 	if keyboardJustPressed('SPACE') and canParry and not isStunned then
 		startParry()
 	    playSound('snd_parry_miss', 0.9)
@@ -101,6 +105,12 @@ function onUpdate(dt)
 	if getProperty('dad.animation.curAnim.finished') and getProperty('dad.animation.curAnim.name') == 'pre-attack' then
 		spawnRedBuster()
 	end
+
+	if getProperty('dad.animation.curAnim.name') == 'pre-attack' and getProperty('dad.animation.curAnim.curFrame') == 0 then 
+		disableCharaAnims(false, disableDuration)
+	end
+
+
 
 	if isParrying then 
 		currentParryTime = currentParryTime + dt
@@ -143,6 +153,7 @@ function onUpdate(dt)
 			setHealth(getHealth() + redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
+			disableCharaAnims(false, disableDuration)
 	    	playSound('snd_rudebuster_hit', 0.9)
 		    playAnim('dad', 'hurt', true)
 			setProperty('dad.stunned', true)
@@ -218,6 +229,7 @@ function onUpdate(dt)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRalsei()
 	    	playSound('snd_hypnosis', 0.9)
+			disableCharaAnims(true, ralseiStunDuration)
 		end 
 
 		if checkCollision('ralsei', 'dad', ralseiParried) and ralseiParried then 
@@ -241,7 +253,32 @@ function onUpdate(dt)
 
 end
 
-function opponentNoteHit(b, t, s)
+function disableCharaAnims(musthit, duration)
+	local disableDuration = duration
+	for notesLength = 0,getProperty('notes.length')-1 do
+            if getPropertyFromGroup('notes', notesLength, 'noteType') == '' then
+			if not both and getPropertyFromGroup('notes', notesLength, 'mustPress') == musthit then
+				setPropertyFromGroup('notes', notesLength, 'noAnimation', true)
+				runTimer('reenableAnims', disableDuration)
+			end
+            end
+        end
+end
+
+function onTimerCompleted(tag)
+	if tag == 'reenableAnims' then
+		for notesLength = 0,getProperty('notes.length')-1 do
+			if getPropertyFromGroup('notes', notesLength, 'noteType') == '' then
+				setPropertyFromGroup('notes', notesLength, 'noAnimation', false)
+			end
+		end
+	end
+end
+
+
+
+function opponentNoteHit(id, direction, noteType, isSustainNote)
+
 	if getHealth()>0.1 then
 		setHealth(getHealth()- 0.01)
 	end
