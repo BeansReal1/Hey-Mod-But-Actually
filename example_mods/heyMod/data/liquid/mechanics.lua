@@ -32,7 +32,7 @@ function onCreate()
 	trailParried = false
 	parryXLocation = 0
 
-	disableDuration = 0.63 -- change this for susies disabled anims
+	disableDuration = 0.8 -- change this for susies disabled anims
 
 	ralseiExists = false
 	ralseiDuration = 0.6
