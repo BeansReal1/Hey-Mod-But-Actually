@@ -512,16 +512,3 @@ function checkCollision(spriteA, spriteB, parried, ralsei)
         return false 
     end
 end
-
-
-
-
--- THIS IS WHERE THE MAGIC HAPPENS
-
-function onBeatHit()
-
-    if curBeat == 260 then
-		playAnim("dad", "pre-attack", true)
-    end
-
-end
