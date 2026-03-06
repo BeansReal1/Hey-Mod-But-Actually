@@ -101,6 +101,11 @@ function onUpdate(dt)
 		disableCharaAnims(true, 0.5)
 	end
 
+	--extra measures \/
+	if getProperty('boyfriend.animation.curAnim.name') == 'block' and getProperty('boyfriend.animation.curAnim.curFrame') == 0 then 
+		disableCharaAnims(true, 0.5)
+	end
+
 	if getProperty('parryEffect.animation.curAnim.finished') and getProperty('parryEffect.animation.curAnim.name') == 'parry' then
 		setProperty("parryEffect.alpha", 0);
 	end
@@ -237,6 +242,7 @@ function onUpdate(dt)
 			parryRalsei()
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 	    	playSound('snd_parry_success', 0.9)
+			disableCharaAnims(true, 0.5)
 		elseif checkCollision('ralsei', 'boyfriend', ralseiParried, true) and not isParryingActive and not ralseiParried then 
 			-- stun bf
 			isStunned = true
