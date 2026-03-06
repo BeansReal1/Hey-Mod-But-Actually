@@ -1,124 +1,108 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [-3, 5],
+			"loop": false,
+			"fps": 24,
 			"anim": "hey",
-			"fps": 24,
-			"name": "BF HEY",
-			"indices": []
+			"indices": [],
+			"name": "BF HEY"
 		},
 		{
 			"loop": false,
-			"offsets": [14, 18],
-			"anim": "hurt",
-			"fps": 24,
-			"name": "BF hit",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [-4, 0],
-			"anim": "scared",
-			"fps": 24,
-			"name": "BF idle shaking",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [-10, -16],
-			"anim": "dodge",
-			"fps": 24,
-			"name": "boyfriend dodge",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [294, 267],
-			"anim": "attack",
-			"fps": 24,
-			"name": "boyfriend attack",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [-40, -40],
-			"anim": "pre-attack",
-			"fps": 24,
-			"name": "bf pre attack",
-			"indices": []
-		},
-		{
 			"offsets": [-5, 0],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "kibble idle"
+			"fps": 24,
+			"name": "kibble idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [76, -3],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "kibble left"
+			"fps": 24,
+			"name": "kibble left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [10, 5],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "kibble down"
+			"fps": 24,
+			"name": "kibble down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [-46, 97],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "kibble up"
+			"fps": 24,
+			"name": "kibble up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [-38, 47],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "kibble right"
+			"fps": 24,
+			"name": "kibble right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [73, 15],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "kibble miss left"
+			"fps": 24,
+			"name": "kibble miss left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [2, 6],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"loop": false,
-			"name": "kibble miss down"
+			"fps": 24,
+			"name": "kibble miss down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [-38, 96],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUPmiss",
-			"loop": false,
-			"name": "kibble miss up"
+			"fps": 24,
+			"name": "kibble miss up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [-31, 41],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "kibble miss right",
+			"indices": []
+		},
+		{
+			"offsets": [50, 29],
 			"indices": [],
 			"fps": 24,
-			"anim": "singRIGHTmiss",
+			"anim": "hurt",
 			"loop": false,
-			"name": "kibble miss right"
+			"name": "kibble hurt"
+		},
+		{
+			"offsets": [50, 29],
+			"indices": [],
+			"fps": 24,
+			"anim": "stun",
+			"loop": false,
+			"name": "kibble stun"
+		},
+		{
+			"offsets": [-46, -19],
+			"indices": [],
+			"fps": 24,
+			"anim": "block",
+			"loop": false,
+			"name": "kibble block"
 		}
 	],
 	"vocals_file": "",

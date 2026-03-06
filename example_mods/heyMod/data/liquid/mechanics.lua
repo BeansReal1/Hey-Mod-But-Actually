@@ -97,6 +97,8 @@ function onUpdate(dt)
 	if keyboardJustPressed('SPACE') and canParry and not isStunned then
 		startParry()
 	    playSound('snd_parry_miss', 0.9)
+		playAnim('boyfriend', 'block', true)
+		disableCharaAnims(true, 0.5)
 	end
 
 	if getProperty('parryEffect.animation.curAnim.finished') and getProperty('parryEffect.animation.curAnim.name') == 'parry' then
@@ -142,6 +144,7 @@ function onUpdate(dt)
 		if checkCollision('redBuster', 'boyfriend', redBusterParried) and isParryingActive and not redBusterParried then 
 			parryXLocation = getProperty('redBuster.x')
 			parryRedBuster()
+			disableCharaAnims(true, disableDuration)
 	    	playSound('snd_parry_success', 0.9)
 			destroyTrail()
 			trailParried = true
@@ -151,7 +154,11 @@ function onUpdate(dt)
 			setHealth(getHealth() - redBusterDamage)
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRedBuster()
+			disableCharaAnims(true, disableDuration)
 	    	playSound('snd_rudebuster_hit', 0.9)
+		    playAnim('boyfriend', 'hurt', true)
+			setProperty('boyfriend.stunned', true)
+			setProperty("boyfriend.specialAnim", true) 
 
 			destroyTrail()
 		end 
@@ -236,7 +243,9 @@ function onUpdate(dt)
 			ralseiStunCurrent = 0
 			cameraShake('game', cameraShakeIntensity, cameraShakeDuration)
 			destroyRalsei()
+			playAnim('boyfriend', 'stun', true)
 	    	playSound('snd_hypnosis', 0.9)
+			setProperty("boyfriend.specialAnim", true) 
 			disableCharaAnims(true, ralseiStunDuration)
 		end 
 
@@ -389,7 +398,7 @@ function spawnRedBuster()
 	setProperty('redBuster.scale.x', -redBusterScale)
 	setProperty('redBuster.scale.y', -redBusterScale)
 	updateHitbox('redBuster')
-	doTweenX('redBusterTween', 'redBuster', initialBfMidX, redBusterDuration, 'linear')
+	doTweenX('redBusterTween', 'redBuster', initialBfMidX - 100 , redBusterDuration, 'linear')
 	redBusterExists = true
 	redBusterParried = false
 	trailActive = true
