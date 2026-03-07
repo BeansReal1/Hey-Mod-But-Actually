@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="speakerSmallR.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="speakerSmallR0000" x="10" y="10" width="540" height="653"/>
+	<SubTexture name="speakerSmallR0001" x="10" y="10" width="540" height="653"/>
+	<SubTexture name="speakerSmallR0002" x="560" y="10" width="538" height="653" frameX="-2" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0003" x="560" y="10" width="538" height="653" frameX="-2" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0004" x="1108" y="10" width="532" height="653" frameX="-8" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0005" x="1108" y="10" width="532" height="653" frameX="-8" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0006" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0007" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0008" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0009" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0010" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0011" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0012" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallR0013" x="10" y="673" width="531" height="653" frameX="-9" frameY="0" frameWidth="540" frameHeight="653"/>
+</TextureAtlas>

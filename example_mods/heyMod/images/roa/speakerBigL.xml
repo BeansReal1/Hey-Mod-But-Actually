@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="speakerBigL.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="speakerBigL0000" x="10" y="10" width="767" height="912"/>
+	<SubTexture name="speakerBigL0001" x="10" y="10" width="767" height="912"/>
+	<SubTexture name="speakerBigL0002" x="787" y="10" width="750" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0003" x="787" y="10" width="750" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0004" x="10" y="932" width="745" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0005" x="10" y="932" width="745" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0006" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0007" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0008" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0009" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0010" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0011" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0012" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+	<SubTexture name="speakerBigL0013" x="765" y="932" width="744" height="912" frameX="0" frameY="0" frameWidth="767" frameHeight="912"/>
+</TextureAtlas>

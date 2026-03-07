@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="speakerSmallL.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="speakerSmallL0000" x="10" y="10" width="540" height="653"/>
+	<SubTexture name="speakerSmallL0001" x="10" y="10" width="540" height="653"/>
+	<SubTexture name="speakerSmallL0002" x="560" y="10" width="538" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0003" x="560" y="10" width="538" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0004" x="1108" y="10" width="532" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0005" x="1108" y="10" width="532" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0006" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0007" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0008" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0009" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0010" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0011" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0012" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+	<SubTexture name="speakerSmallL0013" x="10" y="673" width="530" height="653" frameX="0" frameY="0" frameWidth="540" frameHeight="653"/>
+</TextureAtlas>

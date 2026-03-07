@@ -2,7 +2,7 @@ function onCreate()
 	-- background shit
 
 	makeLuaSprite('kitchen', 'gamingRoom/kitchen', 384.85, 150)
-	setLuaSpriteScrollFactor('kitchen', 0.86, 0.88);
+	setScrollFactor('kitchen', 0.86, 0.88);
 	addLuaSprite('kitchen', false);
 
 	makeLuaSprite('wall', 'gamingRoom/wall', -59.95, -16.20);
