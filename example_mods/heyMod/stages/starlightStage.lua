@@ -34,6 +34,11 @@ function onCreate()
 
 	-- bg3
 
+	makeLuaSprite('sky3','roa/bg3/sky3', -2247.75,-1719.5)
+	addLuaSprite('sky3',false)
+
+	setProperty('sky3.alpha', 0)
+
 	-- more main shit
 	makeAnimatedLuaSprite('speakerSmallLeft', 'roa/speakerSmallL', 28.6, 89.75);
 	addAnimationByPrefix('speakerSmallLeft', 'idle', 'speakerSmallL', 24, true);
