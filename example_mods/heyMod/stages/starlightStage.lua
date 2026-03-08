@@ -57,28 +57,35 @@ function onCreate()
 	
 
 	-- loop the next 2
-	makeLuaSprite('barTop','roa/bg2/barTop', -2323.75,-1833.75)
-	addLuaSprite('barTop',false)
-	widthTop = getProperty('barTop.width')
-	barTopX = getProperty('barTop.x')
 
-	makeLuaSprite('barTop2','roa/bg2/barTop', -2323.75 - widthTop,-1833.75)
-	addLuaSprite('barTop2',false)
-	
-	makeLuaSprite('barBottom','roa/bg2/barBottom', -2323.75, 1573.5)
-	addLuaSprite('barBottom',false)
-	widthBottom = getProperty('barBottom.width')
-	barBottomX = getProperty('barBottom.x')
+-- you can change the bar speed here
+	runHaxeCode([[
+		import flixel.addons.display.FlxBackdrop;
 
-	makeLuaSprite('barBottom2','roa/bg2/barBottom', -2323.75 - widthBottom, 1573.5)
-	addLuaSprite('barBottom2',false)
+        var barTop:FlxBackdrop = new FlxBackdrop(Paths.image('roa/bg2/barTopSingle'), 0x01, 0, 0);
+             
+        barTop.velocity.set(300, 0);
+        
+        setVar('barTop', barTop);
+
+		var barBottom:FlxBackdrop = new FlxBackdrop(Paths.image('roa/bg2/barBottomSingle'), 0x01, 0, 0);
+             
+        barBottom.velocity.set(300, 0);
+        
+        setVar('barBottom', barBottom);
+	]])
+
+	addLuaSprite('barTop', false)
+	addLuaSprite('barBottom', false)
+	setProperty('barTop.x', -2323.75)
+	setProperty('barTop.y', -1833.75 + 400) -- change the +400 if you wanna change the top bar offset you know how ts works
+	setProperty('barBottom.x', -2323.75)
+	setProperty('barBottom.y', 1573.5)
 
 	-- shit gets tweened in later in the song, or we can make an event for it? regardless we'll handle it
 	setProperty('sky2.alpha', 0)
 	setProperty('barTop.alpha', 0)
 	setProperty('barBottom.alpha', 0)
-	setProperty('barTop2.alpha', 0)
-	setProperty('barBottom2.alpha', 0)
 	setProperty('heartsBoard.alpha', 0)
 
 
@@ -119,12 +126,6 @@ function onCreate()
 	doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
 	doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
 
-	barTweenTime = 6 --  yeah you get it by now
-	doTweenX('barTopTween', 'barTop', getProperty('barTop.x') + widthTop, barTweenTime, 'linear')
-	doTweenX('barTopTween2', 'barTop2', getProperty('barTop2.x') + widthTop, barTweenTime, 'linear')
-
-	doTweenX('barBottomTween', 'barBottom', getProperty('barBottom.x') + widthBottom, barTweenTime, 'linear')
-	doTweenX('barBottomTween2', 'barBottom2', getProperty('barBottom2.x') + widthBottom, barTweenTime, 'linear')
 
 	
 
@@ -138,19 +139,6 @@ function onTweenCompleted(tag)
 		setProperty('noteLoop2.x',  -2358.95 - width)
 		doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
 		doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
-	end
-
-	if tag == 'barTopTween' then
-		setProperty('barTop.x', barTopX)
-		setProperty('barTop2.x', barTopX - widthTop)
-		setProperty('barBottom.x', barBottomX)
-		setProperty('barBottom2.x', barBottomX - widthBottom)
-
-		doTweenX('barTopTween', 'barTop', getProperty('barTop.x') + widthTop, barTweenTime, 'linear')
-		doTweenX('barTopTween2', 'barTop2', getProperty('barTop2.x') + widthTop, barTweenTime, 'linear')
-
-		doTweenX('barBottomTween', 'barBottom', getProperty('barBottom.x') + widthBottom, barTweenTime, 'linear')
-		doTweenX('barBottomTween2', 'barBottom2', getProperty('barBottom2.x') + widthBottom, barTweenTime, 'linear')
 	end
 
 
@@ -194,8 +182,6 @@ function stageTransition(stage)
 		doTweenAlpha('heartsBoardAlphaTween', 'heartsBoard', 1, transitionTime, 'linear')
 		doTweenAlpha('barTopAlphaTween', 'barTop', 1, transitionTime, 'linear')
 		doTweenAlpha('barBottomAlphaTween', 'barBottom', 1, transitionTime, 'linear')
-		doTweenAlpha('barTopAlphaTween2', 'barTop2', 1, transitionTime, 'linear')
-		doTweenAlpha('barBottomAlphaTween2', 'barBottom2', 1, transitionTime, 'linear')
 
 
 
@@ -209,8 +195,6 @@ function stageTransition(stage)
 		doTweenAlpha('heartsBoardAlphaTween2', 'heartsBoard', 0, transitionTime, 'linear')
 		doTweenAlpha('barTopAlphaTween2', 'barTop', 0, transitionTime, 'linear')
 		doTweenAlpha('barBottomAlphaTween2', 'barBottom', 0, transitionTime, 'linear')
-		doTweenAlpha('barTopAlphaTween22', 'barTop2', 0, transitionTime, 'linear')
-		doTweenAlpha('barBottomAlphaTween22', 'barBottom2', 0, transitionTime, 'linear')
 
 
 
