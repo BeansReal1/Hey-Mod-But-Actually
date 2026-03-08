@@ -39,7 +39,7 @@ function onCreate()
 	ralseiParryDuration = 0.5
 	ralseiParried = false
 	ralseiHeight = 630
-	ralseiStunDuration = 1.2
+	ralseiStunDuration = 1
 	ralseiStunCurrent = 0 -- do NOT touch this one either bitch, or Im touching YOU
 
 	ralseiOffsetY = -230
@@ -252,6 +252,8 @@ function onUpdate(dt)
 			playAnim('boyfriend', 'stun', true)
 	    	playSound('snd_hypnosis', 0.9)
 			setProperty("boyfriend.specialAnim", true) 
+			setProperty('boyfriend.stunned', true)
+			runTimer('stunTimer', ralseiStunDuration)
 			disableCharaAnims(true, ralseiStunDuration)
 		end 
 
@@ -261,17 +263,6 @@ function onUpdate(dt)
 		end
 	end
 
-	--STUN LOGIC
-	if isStunned then
-		ralseiStunCurrent = ralseiStunCurrent + dt
-		setProperty('boyfriend.stunned', true)
-		if ralseiStunCurrent >= ralseiStunDuration then 
-			isStunned = false 
-			ralseiStunCurrent = 0
-		end
-	else 
-		setProperty('boyfriend.stunned', false)
-	end
 
 
 end
@@ -282,6 +273,7 @@ function disableCharaAnims(musthit, duration)
             if getPropertyFromGroup('notes', notesLength, 'noteType') == '' then
 			if not both and getPropertyFromGroup('notes', notesLength, 'mustPress') == musthit then
 				setPropertyFromGroup('notes', notesLength, 'noAnimation', true)
+				setPropertyFromGroup('notes', notesLength, 'noMissAnimation', true)
 				runTimer('reenableAnims', disableDuration)
 			end
             end
@@ -293,8 +285,13 @@ function onTimerCompleted(tag)
 		for notesLength = 0,getProperty('notes.length')-1 do
 			if getPropertyFromGroup('notes', notesLength, 'noteType') == '' then
 				setPropertyFromGroup('notes', notesLength, 'noAnimation', false)
+				setPropertyFromGroup('notes', notesLength, 'noMissAnimation', false)
 			end
 		end
+	end
+
+	if tag == 'stunTimer' then
+		setProperty('boyfriend.stunned', false)
 	end
 end
 
