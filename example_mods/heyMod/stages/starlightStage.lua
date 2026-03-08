@@ -1,7 +1,12 @@
+
+width = 0
 function onCreate()
 	-- background shit
 	makeLuaSprite('sky1','roa/bg1/sky1', -2247.75,-1719.5)
 	addLuaSprite('sky1',false)
+	
+	
+
 
 	makeLuaSprite('arch','roa/bg1/bgArch', -1979.15,-1463.75)
 	setScrollFactor('arch', 1.08, 1);
@@ -10,6 +15,10 @@ function onCreate()
 	-- make this shit loop \/
 	makeLuaSprite('noteLoop','roa/bg1/bgNoteLoop', -2358.95,-1307.5)
 	addLuaSprite('noteLoop',false)
+	width = getProperty('noteLoop.width')
+
+	makeLuaSprite('noteLoop2','roa/bg1/bgNoteLoop', -2358.95 - width,-1307.5)
+	addLuaSprite('noteLoop2',false)
 	
 	-- bg2
 	makeLuaSprite('sky2','roa/bg2/sky2', -2247.75,-1719.5)
@@ -61,4 +70,20 @@ function onCreate()
 	makeLuaSprite('stage', 'roa/starlightStage', -727.7, 688.75);  
 	addLuaSprite('stage', false);
 
+	
+	--Tweens
+	noteTweenTime = 6 -- change this for the note tween time, duh
+	doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
+	doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
+
+
+end
+
+function onTweenCompleted(tag)
+	if tag == 'noteLoopTween' then 
+		setProperty('noteLoop.x',  -2358.95)
+		setProperty('noteLoop2.x',  -2358.95 - width)
+		doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
+		doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
+	end
 end
