@@ -3,7 +3,7 @@ function onCreate()
 	isParryingActive = false
 	canParry = true
 
-	activeParryTime = 0.14
+	activeParryTime = 0.18
 	cooldownParryTime = 0.2
 	currentParryTime = 0 -- do not touch this one
 
