@@ -24,12 +24,21 @@ function onCreate()
 	addLuaSprite('arch',false)
 
 	-- make this shit loop \/
-	makeLuaSprite('noteLoop','roa/bg1/bgNoteLoop', -2358.95,-1307.5)
-	addLuaSprite('noteLoop',false)
-	width = getProperty('noteLoop.width')
 
-	makeLuaSprite('noteLoop2','roa/bg1/bgNoteLoop', -2358.95 - width,-1307.5)
-	addLuaSprite('noteLoop2',false)
+
+	runHaxeCode([[
+		import flixel.addons.display.FlxBackdrop;
+
+        var noteLoop:FlxBackdrop = new FlxBackdrop(Paths.image('roa/bg1/bgNoteLoop'), 0x01, 0, 0);
+             
+        noteLoop.velocity.set(300, 0);
+        
+        setVar('noteLoop', noteLoop);
+	]])
+
+	addLuaSprite('noteLoop', false)
+	setProperty('noteLoop.x', -2358.95)
+	setProperty('noteLoop.y', -1307.5)
 	
 	-- bg2
 	makeLuaSprite('sky2','roa/bg2/sky2', -2247.75,-1719.5)
@@ -121,11 +130,6 @@ function onCreate()
 	addLuaSprite('stage', false);
 
 	
-	--Tweens
-	noteTweenTime = 6 -- change this for the note tween time, duh
-	doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
-	doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
-
 
 	
 
@@ -134,12 +138,6 @@ function onCreate()
 end
 
 function onTweenCompleted(tag)
-	if tag == 'noteLoopTween' then 
-		setProperty('noteLoop.x',  -2358.95)
-		setProperty('noteLoop2.x',  -2358.95 - width)
-		doTweenX('noteLoopTween', 'noteLoop', getProperty('noteLoop.x') + width, noteTweenTime, 'linear')
-		doTweenX('noteLoopTween2', 'noteLoop2', getProperty('noteLoop2.x') + width, noteTweenTime, 'linear')
-	end
 
 
 
@@ -149,7 +147,6 @@ function onTweenCompleted(tag)
 		removeLuaSprite('sky1', true)
 		removeLuaSprite('arch', true)
 		removeLuaSprite('noteLoop', true)
-		removeLuaSprite('noteLoop2', true)
 
 
 	end
@@ -157,9 +154,7 @@ function onTweenCompleted(tag)
 	if tag == 'sky2AlphaTween2' then
 		removeLuaSprite('sky2', true)
 		removeLuaSprite('barTop', true)
-		removeLuaSprite('barTop2', true)
 		removeLuaSprite('barBottom', true)
-		removeLuaSprite('barBottom2', true)
 		removeLuaSprite('heartsBoard', true)
 
 
@@ -175,16 +170,13 @@ function stageTransition(stage)
 		doTweenAlpha('sky1AlphaTween', 'sky1', 0, transitionTime, 'linear')
 		doTweenAlpha('archAlphaTween', 'arch', 0, transitionTime, 'linear')
 		doTweenAlpha('noteLoopAlphaTween', 'noteLoop', 0, transitionTime, 'linear')
-		doTweenAlpha('noteLoopAlphaTween2', 'noteLoop2', 0, transitionTime, 'linear')
+
 
 		-- new shit in
 		doTweenAlpha('sky2AlphaTween', 'sky2', 1, transitionTime, 'linear')
 		doTweenAlpha('heartsBoardAlphaTween', 'heartsBoard', 1, transitionTime, 'linear')
 		doTweenAlpha('barTopAlphaTween', 'barTop', 1, transitionTime, 'linear')
 		doTweenAlpha('barBottomAlphaTween', 'barBottom', 1, transitionTime, 'linear')
-
-
-
 
 
 	end
