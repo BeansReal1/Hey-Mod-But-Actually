@@ -162,7 +162,7 @@ function onUpdate(dt)
 			disableCharaAnims(true, disableDuration)
 	    	playSound('snd_rudebuster_hit', 0.9)
 		    playAnim('boyfriend', 'hurt', true)
-			setProperty('boyfriend.stunned', true)
+	
 			setProperty("boyfriend.specialAnim", true) 
 
 			destroyTrail()
