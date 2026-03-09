@@ -292,6 +292,7 @@ function onTimerCompleted(tag)
 
 	if tag == 'stunTimer' then
 		setProperty('boyfriend.stunned', false)
+		isStunned = false
 	end
 end
 
